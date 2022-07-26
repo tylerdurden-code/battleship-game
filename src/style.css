@@ -1,4 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: white;
-    color: black
+    color: black;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.mainTitle {
+    font-size: 3rem;
+    align-content: center;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    margin-bottom: -50px;
+    margin-top: 10px;
+}
+
+.box {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+}
+
+.heroBoard,
+.enemyBoard {
+    display: flex;
+    gap: 1px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.box:hover {
+    background-color: grey;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    color: black;
+    text-align: center;
+    height: 30px;
+    padding: 20px;
+}
+
+
+
+.githubIcon {
+    height: 30px;
+    width: 30px;
 }
