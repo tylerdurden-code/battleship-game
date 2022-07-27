@@ -32,6 +32,7 @@ body {
     width: 40px;
     height: 40px;
     border: 2px solid black;
+    position: relative;
 }
 
 .heroBoard,
@@ -73,4 +74,42 @@ body {
 .githubIcon {
     height: 30px;
     width: 30px;
+}
+
+.row.row1 p {
+    position: absolute;
+    left: -30px;
+}
+
+.line10 #letterA {
+    position: absolute;
+    top: 40px;
+    left: 13px;
+}
+
+.line10 p {
+    position: absolute;
+    top: 40px;
+    left: 13px;
+
+}
+
+#num10 {
+    position: absolute;
+    top: 8px;
+}
+
+
+
+.inactive div {
+    color: rgba(0, 0, 0, .2);
+    border-color: rgba(0, 0, 0, .2);
+}
+
+.box.inside {
+    position: absolute;
+    background-color: grey;
+    width: 40px;
+    height: 40px;
+    border: none;
 }
