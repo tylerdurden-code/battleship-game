@@ -1,6 +1,6 @@
-function dragAndDrop() {
+function dragAndDrop(shipNameClass) {
 /* draggable element */
-  const item = document.querySelector('#drag');
+  const item = document.querySelector(shipNameClass);
 
   item.addEventListener('dragstart', dragStart);
 
@@ -36,6 +36,7 @@ function dragAndDrop() {
   }
 
   function drop(e) {
+    e.preventDefault();
     e.target.classList.remove('drag-over');
 
     // get the draggable element
