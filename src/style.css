@@ -113,3 +113,11 @@ body {
     height: 40px;
     border: none;
 }
+
+.box.inside:hover {
+    background-color: red;
+}
+
+.drag-over {
+    border: dashed 3px red;
+}
