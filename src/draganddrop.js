@@ -1,6 +1,6 @@
-function dragAndDrop(shipNameClass) {
+function dragAndDrop() {
 /* draggable element */
-  const item = document.querySelector(shipNameClass);
+  const item = document.querySelector('#drag');
 
   item.addEventListener('dragstart', dragStart);
 
