@@ -11,6 +11,8 @@
 body {
     background-color: white;
     color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 .row {
@@ -35,17 +37,18 @@ body {
     position: relative;
 }
 
+/* 
 .heroBoard,
 .enemyBoard {
     display: flex;
     gap: 1px;
-}
+} */
 
 .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 100vh;
+    min-height: 80vh;
 
 }
 
@@ -120,4 +123,43 @@ body {
 
 .drag-over {
     border: dashed 3px red;
+}
+
+.heroBoard,
+.enemyBoard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 3px;
+
+}
+
+#patrolShip {
+    height: 40px;
+    width: 160px;
+    background-color: grey;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 2;
+}
+
+.ships {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    position: relative;
+    cursor: move;
+}
+
+.hold {
+    border: solid #ccc 4px;
+}
+
+.hovered {
+    background-color: #f4f4f4;
+
+}
+
+.invisible {
+    display: none;
 }
