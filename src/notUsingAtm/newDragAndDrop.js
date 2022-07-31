@@ -35,7 +35,7 @@ function dragDrop() {
       return;
     }
   }
-  this.append(ship);
+  this.appendChild(ship);
 }
 function newDragAndDrop() {
   const boxes = document.querySelectorAll('.box');
@@ -58,4 +58,4 @@ function newDragAndDrop() {
   shipContainer.addEventListener('drop', dragDrop);
 }
 
-module.exports = newDragAndDrop;
+module.exports = { newDragAndDrop, dragStart, dragEnd };

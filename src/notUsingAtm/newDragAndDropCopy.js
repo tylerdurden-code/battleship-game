@@ -1,5 +1,6 @@
 // drag functions
 const ship = document.querySelector('.newPatrolShip');
+
 function dragStart() {
   this.classList.add('hold');
   setTimeout(() => {
@@ -34,7 +35,7 @@ function dragDrop() {
       return;
     }
   }
-  this.append(ship);
+  this.appendChild(ship);
 }
 function newDragAndDropCopy() {
   const boxes = document.querySelectorAll('.box');
@@ -45,16 +46,16 @@ function newDragAndDropCopy() {
   ship.addEventListener('dragend', dragEnd);
 
   // loop boxes
-  boxes.forEach((box) => {
-    box.addEventListener('dragover', dragOver);
-    box.addEventListener('dragenter', dragEnter);
-    box.addEventListener('dragleave', dragLeave);
-    box.addEventListener('drop', dragDrop);
-  });
-  shipContainer.addEventListener('dragover', dragOver);
-  shipContainer.addEventListener('dragenter', dragEnter);
-  shipContainer.addEventListener('dragleave', dragLeave);
-  shipContainer.addEventListener('drop', dragDrop);
+  // boxes.forEach((box) => {
+  //   box.addEventListener('dragover', dragOver);
+  //   box.addEventListener('dragenter', dragEnter);
+  //   box.addEventListener('dragleave', dragLeave);
+  //   box.addEventListener('drop', dragDrop);
+  // });
+  // shipContainer.addEventListener('dragover', dragOver);
+  // shipContainer.addEventListener('dragenter', dragEnter);
+  // shipContainer.addEventListener('dragleave', dragLeave);
+  // shipContainer.addEventListener('drop', dragDrop);
 }
 
 module.exports = newDragAndDropCopy;
