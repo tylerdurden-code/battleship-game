@@ -1,6 +1,5 @@
 // drag functions
-const ship = document.querySelector('.patrolShip');
-
+const ship = document.querySelector('.newPatrolShip');
 function dragStart() {
   this.classList.add('hold');
   setTimeout(() => {
@@ -37,7 +36,7 @@ function dragDrop() {
   }
   this.append(ship);
 }
-function newDragAndDrop() {
+function newDragAndDropCopy() {
   const boxes = document.querySelectorAll('.box');
   const shipContainer = document.querySelector('.ships');
 
@@ -58,4 +57,4 @@ function newDragAndDrop() {
   shipContainer.addEventListener('drop', dragDrop);
 }
 
-module.exports = newDragAndDrop;
+module.exports = newDragAndDropCopy;

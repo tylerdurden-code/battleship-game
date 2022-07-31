@@ -13,6 +13,7 @@ body {
     color: black;
     display: flex;
     flex-direction: column;
+    max-height: 100vh
 }
 
 .row {
@@ -61,7 +62,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -134,30 +135,59 @@ body {
 
 }
 
-#patrolShip {
+
+
+.patrolShip {
     height: 40px;
     width: 160px;
     background-color: grey;
     border: 1px solid black;
     position: absolute;
     z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    transform-origin: 20px 20px;
+}
+
+.newPatrolShip {
+    height: 40px;
+    width: 160px;
+    background-color: grey;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    transform-origin: 20px 20px;
+}
+
+.rotate {
+    padding: 5px;
+}
+
+#patrolShip:hover {
+    cursor: move;
 }
 
 .ships {
     display: flex;
-    height: 100px;
+    height: 200px;
     justify-content: center;
     position: relative;
     cursor: move;
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: -60px;
 }
 
 .hold {
-    border: solid #ccc 4px;
+    border: solid black 4px;
 }
 
 .hovered {
-    background-color: #f4f4f4;
-
+    background-color: red
 }
 
 .invisible {

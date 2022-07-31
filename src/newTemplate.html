@@ -11,7 +11,7 @@
 <body>
     <h1 class="mainTitle">BattleShip Browser Game</h1>
     <div class="container">
-        <div class="heroBoard active">
+        <div class="heroBoard active" draggable="false">
             <div class="box box1"></div>
             <div class="box box2"></div>
             <div class="box box3"></div>
@@ -113,7 +113,7 @@
             <div class="box box99"></div>
             <div class="box box100"></div>
         </div>
-        <div class="enemyBoard inactive">
+        <div class="enemyBoard inactive" draggable="false">
             <div class="box box1"></div>
             <div class="box box2"></div>
             <div class="box box3"></div>
@@ -217,7 +217,9 @@
         </div>
     </div>
     <div class="ships">
-        <div id="patrolShip" draggable="true"></div>
+        <div class="patrolShip" draggable="true" data-rotated='0dg'>
+            <button class="rotate" data-rotate>R</button>
+        </div>
     </div>
     <footer class="footer">
         <img src="./assets/githubIcon.png" alt="" class="githubIcon">
