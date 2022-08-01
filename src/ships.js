@@ -1,6 +1,7 @@
 function createShip(length) {
   return {
     shipLength: length,
+    objectName: null,
     positions: {
 
     },
@@ -16,7 +17,10 @@ function createShip(length) {
       const shipContainer = document.querySelector('.ships');
 
       const shipDiv = document.createElement('div');
-      shipDiv.classList.add('newPatrolShip');
+      shipDiv.classList.add('patrolShip');
+      shipDiv.dataset.ship = '';
+      shipDiv.dataset.length = length;
+      shipDiv.dataset.objectName = this.objectName;
       shipDiv.draggable = 'true';
       shipDiv.dataset.rotated = '0dg';
 
@@ -28,9 +32,13 @@ function createShip(length) {
 
       shipContainer.appendChild(shipDiv);
     },
-    initializeShip() {
+    initializeShip(name) {
+      this.setObjectName(name);
       this.initiatePosition();
       this.createShipDiv();
+    },
+    setObjectName(name) {
+      this.objectName = name;
     },
   };
 }

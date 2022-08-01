@@ -49,7 +49,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 80vh;
+    min-height: 65vh;
 
 }
 
@@ -142,7 +142,7 @@ body {
     width: 160px;
     background-color: grey;
     border: 1px solid black;
-    position: absolute;
+    /* position: absolute; */
     z-index: 2;
     display: flex;
     justify-content: flex-end;
@@ -150,7 +150,7 @@ body {
     transform-origin: 20px 20px;
 }
 
-.newPatrolShip {
+/* .newPatrolShip {
     height: 40px;
     width: 160px;
     background-color: grey;
@@ -161,7 +161,7 @@ body {
     justify-content: flex-end;
     padding: 5px;
     transform-origin: 20px 20px;
-}
+} */
 
 .rotate {
     padding: 5px;
@@ -179,7 +179,8 @@ body {
     cursor: move;
     border: 2px solid black;
     padding: 10px;
-    margin-top: -60px;
+    margin-top: 0px;
+    gap: 20px;
 }
 
 .hold {
@@ -192,4 +193,26 @@ body {
 
 .invisible {
     display: none;
+}
+
+.startBtnDiv {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 10px;
+
+
+}
+
+.startBtn {
+    font-size: 20px;
+    padding: 10px;
+    width: 100px;
+    border: none;
+    background-color: red;
+}
+
+.startBtn:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+    cursor: pointer;
 }

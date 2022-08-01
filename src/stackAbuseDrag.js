@@ -1,3 +1,5 @@
+const { checkTableau } = require('./gameboardObject');
+
 function stackAbuseDrag() {
   const ships = document.querySelectorAll('[data-ship]');
   const boxes = document.querySelectorAll('.box');
@@ -28,6 +30,7 @@ function stackAbuseDrag() {
     this.classList.remove('hovered');
   }
   function dragDrop() {
+    dragItem.style.position = 'absolute';
     this.classList.remove('invisible');
     this.classList.remove('hovered');
     if (dragItem.dataset.rotated === '0dg') {
@@ -40,6 +43,8 @@ function stackAbuseDrag() {
         return;
       }
     }
+    checkTableau();
+    console.log(this);
     this.append(dragItem);
   }
   ships.forEach((ship) => {
