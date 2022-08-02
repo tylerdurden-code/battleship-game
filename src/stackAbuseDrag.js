@@ -1,6 +1,6 @@
 const { checkTableau } = require('./gameboardObject');
 
-function stackAbuseDrag() {
+function stackAbuseDrag(gameboard) {
   const ships = document.querySelectorAll('[data-ship]');
   const boxes = document.querySelectorAll('.box');
 
@@ -17,6 +17,7 @@ function stackAbuseDrag() {
     this.classList.remove('hold');
     this.classList.remove('invisible');
     this.className = 'patrolShip';
+    checkTableau(gameboard);
     dragItem = null;
   }
   function dragOver(e) {
@@ -43,7 +44,7 @@ function stackAbuseDrag() {
         return;
       }
     }
-    checkTableau();
+
     console.log(this);
     this.append(dragItem);
   }

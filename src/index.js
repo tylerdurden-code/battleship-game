@@ -24,7 +24,7 @@ ship3.initializeShip('ship3');
 console.log('webpack genius');
 console.log(sum(5, 10));
 console.log(sum(5, 10));
-stackAbuseDrag();
+stackAbuseDrag(gameboard);
 
 rotateShip();
 fixClassNames();
@@ -32,5 +32,5 @@ fixClassNames();
 // newDragAndDrop();
 console.log(ship1, ship2, ship3);
 startBtnFunc();
-checkTableau();
+// checkTableau();
 // applyDragEFX();
