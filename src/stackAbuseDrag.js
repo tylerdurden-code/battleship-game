@@ -8,9 +8,9 @@ function stackAbuseDrag(gameboard) {
 
   function dragStart() {
     dragItem = this;
-    this.className += ' hold';
+    this.classList.add('hold');
     setTimeout(() => {
-      this.className += ' invisible';
+      this.classList.add('invisible');
     }, 0);
   }
   function dragEnd() {
@@ -21,16 +21,32 @@ function stackAbuseDrag(gameboard) {
     dragItem = null;
   }
   function dragOver(e) {
+    if (this.parentNode.classList.contains('inactive')) {
+      return;
+    }
     e.preventDefault();
     this.classList.add('hovered');
   }
   function dragEnter(e) {
+    if (this.parentNode.classList.contains('inactive')) {
+      return;
+    }
     e.preventDefault();
+    this.classList.remove('hold');
+    this.classList.remove('invisible');
   }
   function dragLeave() {
+    if (this.parentNode.classList.contains('inactive')) {
+      return;
+    }
     this.classList.remove('hovered');
+    this.classList.remove('hold');
+    this.classList.remove('invisible');
   }
   function dragDrop() {
+    if (this.parentNode.classList.contains('inactive')) {
+      return;
+    }
     dragItem.style.position = 'absolute';
     this.classList.remove('invisible');
     this.classList.remove('hovered');

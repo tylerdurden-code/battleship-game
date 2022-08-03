@@ -1,4 +1,6 @@
-function rotateShip() {
+const { checkTableau } = require('./gameboardObject');
+
+function rotateShip(gameboard) {
   const btns = document.querySelectorAll('[data-rotate]');
 
   btns.forEach((btn) => {
@@ -11,6 +13,7 @@ function rotateShip() {
         }
         btn.parentNode.dataset.rotated = '0dg';
         btn.parentNode.style.transform = 'rotate(0deg)';
+        checkTableau(gameboard);
 
         return;
       }
@@ -20,6 +23,7 @@ function rotateShip() {
       } else {
         btn.parentNode.dataset.rotated = '90dg';
         btn.parentNode.style.transform = 'rotate(90deg)';
+        checkTableau(gameboard);
       }
     });
   });

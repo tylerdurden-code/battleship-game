@@ -12,6 +12,7 @@ const rotateShip = require('./rotateShip');
 const startBtnFunc = require('./startBtn');
 const { gameboardObject } = require('./gameboardObject');
 const { checkTableau } = require('./gameboardObject');
+const invisibleShip = require('./invisibleShipBtn');
 
 const gameboard = gameboardObject();
 const ship = document.querySelector('[data-big-ship]');
@@ -26,11 +27,12 @@ console.log(sum(5, 10));
 console.log(sum(5, 10));
 stackAbuseDrag(gameboard);
 
-rotateShip();
+rotateShip(gameboard);
 fixClassNames();
 // dragAndDrop();
 // newDragAndDrop();
 console.log(ship1, ship2, ship3);
 startBtnFunc();
+invisibleShip();
 // checkTableau();
 // applyDragEFX();
