@@ -1,4 +1,5 @@
 const { checkTableau } = require('./gameboardObject');
+const markUnavailablePostion = require('./markUnavailablePosition');
 
 function rotateShip(gameboard) {
   const btns = document.querySelectorAll('[data-rotate]');
@@ -14,6 +15,7 @@ function rotateShip(gameboard) {
         btn.parentNode.dataset.rotated = '0dg';
         btn.parentNode.style.transform = 'rotate(0deg)';
         checkTableau(gameboard);
+        markUnavailablePostion('4', gameboard, '0dg');
 
         return;
       }
@@ -24,6 +26,7 @@ function rotateShip(gameboard) {
         btn.parentNode.dataset.rotated = '90dg';
         btn.parentNode.style.transform = 'rotate(90deg)';
         checkTableau(gameboard);
+        markUnavailablePostion('4', gameboard, '0dg');
       }
     });
   });

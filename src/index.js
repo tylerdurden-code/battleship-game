@@ -11,7 +11,6 @@ const fixClassNames = require('./classNameFuncs');
 const rotateShip = require('./rotateShip');
 const startBtnFunc = require('./startBtn');
 const { gameboardObject } = require('./gameboardObject');
-const { checkTableau } = require('./gameboardObject');
 const invisibleShip = require('./invisibleShipBtn');
 
 const gameboard = gameboardObject();

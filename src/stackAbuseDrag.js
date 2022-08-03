@@ -1,4 +1,5 @@
 const { checkTableau } = require('./gameboardObject');
+const markUnavailablePostion = require('./markUnavailablePosition');
 
 function stackAbuseDrag(gameboard) {
   const ships = document.querySelectorAll('[data-ship]');
@@ -18,6 +19,7 @@ function stackAbuseDrag(gameboard) {
     this.classList.remove('invisible');
     this.className = 'patrolShip';
     checkTableau(gameboard);
+    markUnavailablePostion('4', gameboard, '0dg');
     dragItem = null;
   }
   function dragOver(e) {
@@ -61,8 +63,8 @@ function stackAbuseDrag(gameboard) {
       }
     }
 
-    console.log(this);
     this.append(dragItem);
+    console.log(this);
   }
   ships.forEach((ship) => {
     ship.addEventListener('dragstart', dragStart);
