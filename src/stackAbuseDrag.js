@@ -1,5 +1,6 @@
 const { checkTableau } = require('./gameboardObject');
 const markUnavailablePostion = require('./markUnavailablePosition');
+const makeAList1 = require('./makeAListOfUnavailable');
 
 function stackAbuseDrag(gameboard) {
   const ships = document.querySelectorAll('[data-ship]');
@@ -46,6 +47,10 @@ function stackAbuseDrag(gameboard) {
     this.classList.remove('invisible');
   }
   function dragDrop() {
+    // const boxList = makeAList1();
+    // if (boxList.includes(this)) {
+    //   return;
+    // }
     if (this.parentNode.classList.contains('inactive')) {
       return;
     }
@@ -64,7 +69,7 @@ function stackAbuseDrag(gameboard) {
     }
 
     this.append(dragItem);
-    console.log(this);
+    // console.log(this);
   }
   ships.forEach((ship) => {
     ship.addEventListener('dragstart', dragStart);
