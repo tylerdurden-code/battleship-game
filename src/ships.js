@@ -17,9 +17,25 @@ function createShip(length) {
       const shipContainer = document.querySelector('.ships');
 
       const shipDiv = document.createElement('div');
-      shipDiv.classList.add('patrolShip');
+      if (this.shipLength === 4) {
+        shipDiv.classList.add('patrolShip');
+        shipDiv.dataset.originalClass = 'patrolShip';
+      }
+      if (this.shipLength === 5) {
+        shipDiv.classList.add('carrierShip');
+        shipDiv.dataset.originalClass = 'carrierShip';
+      }
+      if (this.shipLength === 3) {
+        shipDiv.classList.add('destroyerShip');
+        shipDiv.dataset.originalClass = 'destroyerShip';
+      }
+      if (this.shipLength === 2) {
+        shipDiv.classList.add('submarineShip');
+        shipDiv.dataset.originalClass = 'submarineShip';
+      }
+
       shipDiv.dataset.ship = '';
-      shipDiv.dataset.length = length;
+      shipDiv.dataset.length = this.shipLength;
       shipDiv.dataset.objectName = this.objectName;
       shipDiv.draggable = 'true';
       shipDiv.dataset.rotated = '0dg';

@@ -131,7 +131,7 @@ body {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    gap: 3px;
+    /* gap: 3px; */
 
 }
 
@@ -140,6 +140,45 @@ body {
 .patrolShip {
     height: 40px;
     width: 160px;
+    background-color: grey;
+    border: 1px solid black;
+    /* position: absolute; */
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    transform-origin: 20px 20px;
+}
+
+.carrierShip {
+    height: 40px;
+    width: 200px;
+    background-color: grey;
+    border: 1px solid black;
+    /* position: absolute; */
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    transform-origin: 20px 20px;
+}
+
+.destroyerShip {
+    height: 40px;
+    width: 120px;
+    background-color: grey;
+    border: 1px solid black;
+    /* position: absolute; */
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    transform-origin: 20px 20px;
+}
+
+.submarineShip {
+    height: 40px;
+    width: 80px;
     background-color: grey;
     border: 1px solid black;
     /* position: absolute; */

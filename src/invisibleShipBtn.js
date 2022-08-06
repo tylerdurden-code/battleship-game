@@ -10,6 +10,10 @@ function invisibleShip() {
       ship.classList.remove('invisible');
     });
   });
+  ships.forEach((ship) => {
+    ship.classList.remove('hold');
+    ship.classList.remove('invisible');
+  });
 }
 
 module.exports = invisibleShip;

@@ -39,7 +39,7 @@ function markUnavailablePostion(length, gameboard, dg) {
   let max;
   if (dg === '0dg') {
     console.log(numBoxesArr);
-    if (length === '4') {
+    if (length === '2') {
       for (const box in gameboard) {
         if (gameboard[box] === true) {
           const num = parseInt(box.substring(3));
@@ -48,7 +48,7 @@ function markUnavailablePostion(length, gameboard, dg) {
           numBoxesArr.push((num + 1) + 10, (num + 1) - 10, (num - 1) + 10, (num - 1) - 10);
         }
       }
-      const uniqueNumBoxesArr = numBoxesArr.filter((item, pos) => numBoxesArr.indexOf(item) == pos);
+      const uniqueNumBoxesArr = numBoxesArr.filter((item, pos) => numBoxesArr.indexOf(item) == pos); // checks for duplicate numbers
       //   min = findMin(numBoxesArr);
       //   max = findMax(numBoxesArr);
       //   const newMin = min - 1;
@@ -60,6 +60,76 @@ function markUnavailablePostion(length, gameboard, dg) {
       //   numBoxesArr.push(newMin, newMin + 10, newMin - 10, newMax, newMax + 10, newMax - 10);
       // }
       console.log(uniqueNumBoxesArr);
+      return uniqueNumBoxesArr;
+    }
+    if (length === '3') {
+      for (const box in gameboard) {
+        if (gameboard[box] === true) {
+          const num = parseInt(box.substring(3));
+          console.log(num);
+          numBoxesArr.push(num, num + 1, num - 1, num + 10, num - 10);
+          numBoxesArr.push((num + 1) + 10, (num + 1) - 10, (num - 1) + 10, (num - 1) - 10);
+        }
+      }
+      const uniqueNumBoxesArr = numBoxesArr.filter((item, pos) => numBoxesArr.indexOf(item) == pos); // checks for duplicate numbers
+      //   min = findMin(numBoxesArr);
+      //   max = findMax(numBoxesArr);
+      //   const newMin = min - 1;
+      //   const newMax = max + 1;
+      //   console.log(newMin, newMax);
+      //   numBoxesArr.forEach((box) => {
+      //     numBoxesArr.push(box - 10, box + 10);
+      //   });
+      //   numBoxesArr.push(newMin, newMin + 10, newMin - 10, newMax, newMax + 10, newMax - 10);
+      // }
+      console.log(uniqueNumBoxesArr);
+      return uniqueNumBoxesArr;
+    }
+    if (length === '4') {
+      for (const box in gameboard) {
+        if (gameboard[box] === true) {
+          const num = parseInt(box.substring(3));
+          console.log(num);
+          numBoxesArr.push(num, num + 1, num - 1, num + 10, num - 10);
+          numBoxesArr.push((num + 1) + 10, (num + 1) - 10, (num - 1) + 10, (num - 1) - 10);
+        }
+      }
+      const uniqueNumBoxesArr = numBoxesArr.filter((item, pos) => numBoxesArr.indexOf(item) == pos); // checks for duplicate numbers
+      //   min = findMin(numBoxesArr);
+      //   max = findMax(numBoxesArr);
+      //   const newMin = min - 1;
+      //   const newMax = max + 1;
+      //   console.log(newMin, newMax);
+      //   numBoxesArr.forEach((box) => {
+      //     numBoxesArr.push(box - 10, box + 10);
+      //   });
+      //   numBoxesArr.push(newMin, newMin + 10, newMin - 10, newMax, newMax + 10, newMax - 10);
+      // }
+      console.log(uniqueNumBoxesArr);
+      return uniqueNumBoxesArr;
+    }
+    if (length === '5') {
+      for (const box in gameboard) {
+        if (gameboard[box] === true) {
+          const num = parseInt(box.substring(3));
+          console.log(num);
+          numBoxesArr.push(num, num + 1, num - 1, num + 10, num - 10);
+          numBoxesArr.push((num + 1) + 10, (num + 1) - 10, (num - 1) + 10, (num - 1) - 10);
+        }
+      }
+      const uniqueNumBoxesArr = numBoxesArr.filter((item, pos) => numBoxesArr.indexOf(item) == pos); // checks for duplicate numbers
+      //   min = findMin(numBoxesArr);
+      //   max = findMax(numBoxesArr);
+      //   const newMin = min - 1;
+      //   const newMax = max + 1;
+      //   console.log(newMin, newMax);
+      //   numBoxesArr.forEach((box) => {
+      //     numBoxesArr.push(box - 10, box + 10);
+      //   });
+      //   numBoxesArr.push(newMin, newMin + 10, newMin - 10, newMax, newMax + 10, newMax - 10);
+      // }
+      console.log(uniqueNumBoxesArr);
+      return uniqueNumBoxesArr;
     }
 
   // numBoxesArr.length = 0;

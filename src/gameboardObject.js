@@ -19,11 +19,27 @@ function gameboardObject() {
 }
 function addTruthBasedOnLength(dg, num, gameboard, length) {
   if (dg === '0dg') {
+    if (length === 2) {
+      gameboard[`box${num}`] = true;
+      gameboard[`box${num + 1}`] = true;
+    }
+    if (length === 3) {
+      gameboard[`box${num}`] = true;
+      gameboard[`box${num + 1}`] = true;
+      gameboard[`box${num + 2}`] = true;
+    }
     if (length === 4) {
       gameboard[`box${num}`] = true;
       gameboard[`box${num + 1}`] = true;
       gameboard[`box${num + 2}`] = true;
       gameboard[`box${num + 3}`] = true;
+    }
+    if (length === 5) {
+      gameboard[`box${num}`] = true;
+      gameboard[`box${num + 1}`] = true;
+      gameboard[`box${num + 2}`] = true;
+      gameboard[`box${num + 3}`] = true;
+      gameboard[`box${num + 5}`] = true;
     }
   }
   if (dg === '90dg') {
