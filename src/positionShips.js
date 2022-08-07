@@ -1,10 +1,12 @@
 function isPositionOccupied(x, y, length, gameboard, direction) {
   let num;
-  gameboard[0][0] = 'fd';
   x = parseInt(x);
   y = parseInt(y);
   const positions = [];
   if (direction === 'right') {
+    if (x > 9 || (y + (length - 1)) > 9) {
+      return true;
+    }
     for (let i = 0; i < length; i += 1) {
       positions.push([x, y + i]);
     }
@@ -57,23 +59,34 @@ function gameboardPosition(length, gameboard, direction, shipName) {
 //       }
 //     }
 //   }
-  const x = prompt();
-  const y = prompt();
-  if (isPositionOccupied(x, y, length, gameboard, 'right')) {
-    console.log('occupied');
-    x = prompt();
-    y = prompt();
-  } else {
-    console.log('NOT OCCUPIED');
-    console.log(gameboard);
+  let x = prompt();
+  let y = prompt();
+  let checker = true;
+  while (checker) {
+    if (isPositionOccupied(x, y, length, gameboard, 'right')) {
+      console.log('occupied');
+      x = prompt();
+      y = prompt();
+    } else {
+      console.log('NOT OCCUPIED');
+      //   console.log(gameboard);
+      for (let z = 0; z < length; z += 1) {
+        gameboard[parseInt(x)][parseInt(y) + z] = shipName;
+      }
+      checker = false;
+    }
   }
 }
 
 function positionShips(shipsArray, gameboard) {
-  const ship1 = shipsArray[1];
-  gameboardPosition(ship1.length, gameboard, 'right', ship1.name);
-  const ship2 = shipsArray[0];
-  gameboardPosition(ship2.length, gameboard, 'right', ship2.name);
+//   const ship1 = shipsArray[1];
+//   gameboardPosition(ship1.length, gameboard, 'right', ship1.name);
+//   const ship2 = shipsArray[0];
+//   gameboardPosition(ship2.length, gameboard, 'right', ship2.name);
+  shipsArray.forEach((ship) => {
+    console.log(`'you need to position ${ship.name}`);
+    gameboardPosition(ship.length, gameboard, 'right', ship.name);
+  });
 }
 
 module.exports = positionShips;
