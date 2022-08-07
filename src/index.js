@@ -13,7 +13,7 @@ const submarineShip = createShip(3, 'submarine');
 
 ships.push(destroyerShip, carrierShip, battleShip, cruiserShip, submarineShip);
 
-positionShips(ships, 5, 6, gameboardPlayer1);
+positionShips(ships, gameboardPlayer1);
 
 console.log(gameboardPlayer1);
 gameboardPlayer1.forEach((box) => {
