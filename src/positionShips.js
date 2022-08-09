@@ -1,12 +1,24 @@
+const generateRandomInteger = require('./randomNum');
+
+function checkValidPostions(x, y, direction, length) {
+  console.log(length);
+  if (direction === 'right') {
+    if ((x > 10)) {
+      return false;
+    }
+    if ((y + length) > 10) {
+      return false;
+    }
+    return true;
+  }
+}
+
 function isPositionOccupied(x, y, length, gameboard, direction) {
   let num;
-  x = parseInt(x);
-  y = parseInt(y);
+  // x = parseInt(x);
+  // y = parseInt(y);
   const positions = [];
   if (direction === 'right') {
-    if (x > 9 || (y + (length - 1)) > 9) {
-      return true;
-    }
     for (let i = 0; i < length; i += 1) {
       positions.push([x, y + i]);
     }
@@ -19,9 +31,10 @@ function isPositionOccupied(x, y, length, gameboard, direction) {
     }
   });
 
-  if (num === 1) {
+  if ((num === 1)) {
     return true;
   }
+
   return false;
 }
 
@@ -59,14 +72,34 @@ function gameboardPosition(length, gameboard, direction, shipName) {
 //       }
 //     }
 //   }
-  let x = prompt();
-  let y = prompt();
+  // let x = prompt();
+  // let y = prompt();
+  let zeroChecker = true;
+  const x = generateRandomInteger(9);
+  let y = generateRandomInteger(9) - length - 1;
   let checker = true;
+  while (zeroChecker) {
+    if (y < 0) {
+      console.log('continue');
+      y = generateRandomInteger(9) - length - 1;
+    } else {
+      zeroChecker = false;
+    }
+  }
   while (checker) {
+    let secondChecker = true;
     if (isPositionOccupied(x, y, length, gameboard, 'right')) {
       console.log('occupied');
-      x = prompt();
-      y = prompt();
+      // x = prompt();
+      // y = prompt();
+      while (secondChecker) {
+        if (y < 0) {
+          console.log('continue');
+          y = generateRandomInteger(9) - length - 1;
+        } else {
+          secondChecker = false;
+        }
+      }
     } else {
       console.log('NOT OCCUPIED');
       //   console.log(gameboard);
