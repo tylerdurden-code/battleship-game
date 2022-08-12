@@ -1,4 +1,5 @@
 const generateRandomInteger = require('./randomNum');
+const checkNegativity = require('./checkIfNumIsNegative');
 
 function checkValidPostions(x, y, direction, length) {
   console.log(length);
@@ -21,6 +22,11 @@ function isPositionOccupied(x, y, length, gameboard, direction) {
   if (direction === 'right') {
     for (let i = 0; i < length; i += 1) {
       positions.push([x, y + i]);
+    }
+  }
+  if (direction === 'down') {
+    for (let i = 0; i < length; i += 1) {
+      positions.push([x + i, y]);
     }
   }
   positions.forEach((position) => {
@@ -74,39 +80,146 @@ function gameboardPosition(length, gameboard, direction, shipName) {
 //   }
   // let x = prompt();
   // let y = prompt();
-  let zeroChecker = true;
-  const x = generateRandomInteger(9);
-  let y = generateRandomInteger(9) - length - 1;
-  let checker = true;
-  while (zeroChecker) {
-    if (y < 0) {
-      console.log('continue');
-      y = generateRandomInteger(9) - length - 1;
-    } else {
-      zeroChecker = false;
+
+  // let x = generateRandomInteger(9);
+  // let y = generateRandomInteger(9) - length - 1;
+  // let checker = true;
+  // let secondChecker = true;
+  // while (secondChecker) {
+  //   if (checkNegativity(y)) {
+  //     x = generateRandomInteger(9);
+  //     y = generateRandomInteger(9) - length - 1;
+  //   } else {
+  //     secondChecker = false;
+  //   }
+  // }
+  // while (checker) {
+  //   let thirdChecker = true;
+  //   if (isPositionOccupied(x, y, length, gameboard, 'right')) {
+  //     console.log('occupied');
+  //     // x = prompt();
+  //     // y = prompt();
+  //     while (thirdChecker) {
+  //       if (checkNegativity(y)) {
+  //         x = generateRandomInteger(9);
+  //         y = generateRandomInteger(9) - length - 1;
+  //       } else {
+  //         thirdChecker = false;
+  //       }
+  //     }
+  //   } else {
+  //     console.log('NOT OCCUPIED');
+  //     //   console.log(gameboard);
+  //     for (let z = 0; z < length; z += 1) {
+  //       gameboard[parseInt(x)][parseInt(y) + z] = shipName;
+  //     }
+  //     checker = false;
+  //   }
+  // }
+  let x;
+  let y;
+  let occupied = true;
+  if (direction === 'right') {
+    switch (length) {
+      case 5:
+        x = generateRandomInteger(9);
+        y = generateRandomInteger(5);
+        break;
+      case 4:
+        x = generateRandomInteger(9);
+        y = generateRandomInteger(6);
+        break;
+      case 3:
+        x = generateRandomInteger(9);
+        y = generateRandomInteger(7);
+        break;
+      case 2:
+        x = generateRandomInteger(9);
+        y = generateRandomInteger(8);
+        break;
+      default:
+        console.log('default');
+    }
+    while (occupied) {
+      if (isPositionOccupied(x, y, length, gameboard, direction)) {
+        console.log('picked again');
+        switch (length) {
+          case 5:
+            x = generateRandomInteger(9);
+            y = generateRandomInteger(5);
+            break;
+          case 4:
+            x = generateRandomInteger(9);
+            y = generateRandomInteger(6);
+            break;
+          case 3:
+            x = generateRandomInteger(9);
+            y = generateRandomInteger(7);
+            break;
+          case 2:
+            x = generateRandomInteger(9);
+            y = generateRandomInteger(8);
+            break;
+          default:
+            console.log('default');
+        }
+      } else {
+        for (let i = 0; i < length; i += 1) {
+          gameboard[parseInt(x)][parseInt(y) + i] = shipName;
+        }
+        occupied = false;
+      }
     }
   }
-  while (checker) {
-    let secondChecker = true;
-    if (isPositionOccupied(x, y, length, gameboard, 'right')) {
-      console.log('occupied');
-      // x = prompt();
-      // y = prompt();
-      while (secondChecker) {
-        if (y < 0) {
-          console.log('continue');
-          y = generateRandomInteger(9) - length - 1;
-        } else {
-          secondChecker = false;
+  if (direction === 'down') {
+    switch (length) {
+      case 5:
+        x = generateRandomInteger(5);
+        y = generateRandomInteger(9);
+        break;
+      case 4:
+        x = generateRandomInteger(6);
+        y = generateRandomInteger(9);
+        break;
+      case 3:
+        x = generateRandomInteger(7);
+        y = generateRandomInteger(9);
+        break;
+      case 2:
+        x = generateRandomInteger(8);
+        y = generateRandomInteger(9);
+        break;
+      default:
+        console.log('default');
+    }
+    while (occupied) {
+      if (isPositionOccupied(x, y, length, gameboard, direction)) {
+        switch (length) {
+          case 5:
+            x = generateRandomInteger(5);
+            y = generateRandomInteger(9);
+            break;
+          case 4:
+            x = generateRandomInteger(6);
+            y = generateRandomInteger(9);
+            break;
+          case 3:
+            x = generateRandomInteger(7);
+            y = generateRandomInteger(9);
+            break;
+          case 2:
+            x = generateRandomInteger(8);
+            y = generateRandomInteger(9);
+            break;
+          default:
+            console.log('default');
         }
+      } else {
+        for (let i = 0; i < length; i += 1) {
+          gameboard[parseInt(x) + i][parseInt(y)] = shipName;
+        }
+        occupied = false;
       }
-    } else {
-      console.log('NOT OCCUPIED');
-      //   console.log(gameboard);
-      for (let z = 0; z < length; z += 1) {
-        gameboard[parseInt(x)][parseInt(y) + z] = shipName;
-      }
-      checker = false;
     }
   }
 }
