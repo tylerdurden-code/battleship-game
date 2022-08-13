@@ -1,6 +1,7 @@
 const createGameboard = require('./gameboard');
 const createShip = require('./ships');
 const positionShips = require('./positionShips');
+const createPlayers = require('./createPlayers');
 
 const shipsP1 = [];
 const shipsP2 = [];
@@ -14,6 +15,8 @@ const submarineShip = createShip(3, 'submarine');
 
 shipsP1.push(destroyerShip, carrierShip, battleShip, cruiserShip, submarineShip);
 shipsP2.push(destroyerShip, carrierShip, battleShip, cruiserShip, submarineShip);
+
+const playerList = createPlayers();
 
 positionShips(shipsP1, gameboardPlayer1);
 
