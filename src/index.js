@@ -1,3 +1,5 @@
+import './style.css';
+
 const createGameboard = require('./gameboard');
 const createShip = require('./ships');
 const positionShips = require('./positionShips');

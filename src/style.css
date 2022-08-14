@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.startingPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.vsButtons button {
+    height: 100px;
+    width: 200px;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.title {
+    font-size: 35px;
+    font-family: 'Silkscreen', cursive;
+}
+
+.vsplayer:hover {
+    background-color: yellow
+}
+
+.vsai:hover {
+    background-color: lightskyblue
+}
