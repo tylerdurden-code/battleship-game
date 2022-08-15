@@ -36,3 +36,41 @@
 .vsai:hover {
     background-color: lightskyblue
 }
+
+#tylerDurdenPic {
+    height: 250px;
+    width: 190px;
+    box-shadow: 5px 10px 18px black;
+}
+
+.secondPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    gap: 40px;
+    flex-direction: column;
+}
+
+#chooseANameTitle {
+    font-family: 'Silkscreen', cursive;
+}
+
+#inputAName {
+    padding: 5px;
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 4px;
+    font-size: 1.1em;
+}
+
+#inputAName:focus {
+    outline: none;
+}
+
+.inputPlayerName {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}

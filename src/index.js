@@ -1,5 +1,7 @@
 import './style.css';
+// import tylerDurdenPic from './assets/tylerdurden.jpg';
 
+// const tylerDurdenPic = require('file-loader!./assets/tyler durden.jpg');
 const createGameboard = require('./gameboard');
 const createShip = require('./ships');
 const positionShips = require('./positionShips');
@@ -41,4 +43,4 @@ gameboardPlayer2.forEach((box) => {
 });
 
 rounds(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1, shipsP2);
-// runStartingPage();
+runStartingPage();

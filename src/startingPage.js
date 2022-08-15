@@ -1,8 +1,12 @@
+const { runSecondaryPage } = require('./secondaryPage');
+const { secondaryPageGetImg } = require('./secondaryPage');
+
 function startingPageButtonsListeners() {
   const vsaiBtn = document.querySelector('.vsai');
 
   vsaiBtn.addEventListener('click', () => {
-    console.log('big boy now');
+    runSecondaryPage();
+    secondaryPageGetImg();
   });
 }
 
