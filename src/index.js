@@ -5,6 +5,7 @@ const createShip = require('./ships');
 const positionShips = require('./positionShips');
 const createPlayers = require('./createPlayers');
 const rounds = require('./rounds');
+const runStartingPage = require('./startingPage');
 
 const shipsP1 = [];
 const shipsP2 = [];
@@ -40,3 +41,4 @@ gameboardPlayer2.forEach((box) => {
 });
 
 rounds(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1, shipsP2);
+// runStartingPage();
