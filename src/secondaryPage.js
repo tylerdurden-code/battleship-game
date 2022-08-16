@@ -1,10 +1,22 @@
+const createPlayers = require('./createPlayers');
+
+function secondaryPageEventListeners(playerList) {
+  const nameInput = document.querySelector('#inputAName');
+  nameInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      nameInput.value = '';
+      playerList = createPlayers(nameInput.value);
+    }
+  });
+}
+
 function secondaryPageGetImg() {
   const tylerImg = document.querySelector('#tylerDurdenPic');
 
-//   tylerImg.src = tylerDurdenPic;
+  tylerImg.src = './imgs/tylerdurden.jpg';
 }
 
-function runSecondaryPage() {
+function runSecondaryPage(playerList) {
   const body = document.querySelector('body');
 
   body.innerHTML = `
@@ -18,7 +30,8 @@ function runSecondaryPage() {
         </div>
     </div>
   `;
-//   secondaryPageGetImg();
+  secondaryPageGetImg();
+  secondaryPageEventListeners(playerList);
 }
 
 module.exports = { runSecondaryPage, secondaryPageGetImg };

@@ -27,7 +27,8 @@ const submarineShip2 = createShip(3, 'submarine');
 shipsP1.push(destroyerShip1, carrierShip1, battleShip1, cruiserShip1, submarineShip1);
 shipsP2.push(destroyerShip2, carrierShip2, battleShip2, cruiserShip2, submarineShip2);
 
-const playerList = createPlayers();
+let playerList;
+runStartingPage(playerList);
 
 positionShips(shipsP1, gameboardPlayer1);
 
@@ -43,4 +44,3 @@ gameboardPlayer2.forEach((box) => {
 });
 
 rounds(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1, shipsP2);
-runStartingPage();

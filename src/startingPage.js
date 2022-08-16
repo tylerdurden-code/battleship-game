@@ -1,16 +1,16 @@
 const { runSecondaryPage } = require('./secondaryPage');
 const { secondaryPageGetImg } = require('./secondaryPage');
 
-function startingPageButtonsListeners() {
+function startingPageButtonsListeners(playerList) {
   const vsaiBtn = document.querySelector('.vsai');
 
   vsaiBtn.addEventListener('click', () => {
-    runSecondaryPage();
+    runSecondaryPage(playerList);
     secondaryPageGetImg();
   });
 }
 
-function runStartingPage() {
+function runStartingPage(playerList) {
   const body = document.querySelector('body');
 
   body.innerHTML = `
@@ -24,7 +24,7 @@ function runStartingPage() {
     </div>
     </div>`;
 
-  startingPageButtonsListeners();
+  startingPageButtonsListeners(playerList);
 }
 
 module.exports = runStartingPage;

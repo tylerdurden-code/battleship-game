@@ -4,12 +4,12 @@ function createPlayerObject(name) {
   };
 }
 
-function createPlayers() {
+function createPlayers(player1Name) {
 //   const playerOneName = prompt('First player name: ');
 //   const playerTwoName = prompt('Second player name: ');
 // user input player names
-  const playerOneName = 'Jack';
-  const playerTwoName = 'John';
+  const playerOneName = player1Name;
+  const playerTwoName = 'Narrator';
   const playerOne = createPlayerObject(playerOneName);
   const playerTwo = createPlayerObject(playerTwoName);
 
