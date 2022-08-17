@@ -74,3 +74,82 @@
     flex-direction: column;
     gap: 2px;
 }
+
+.box {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    position: relative;
+}
+
+.box:hover {
+    background-color: grey;
+}
+
+.heroBoard,
+.enemyBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.row {
+    display: flex;
+    gap: 2px;
+}
+
+/* div[data-col-num='4'] {
+    background-color: red;
+} */
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+
+}
+
+.mainTitle {
+    font-size: 3rem;
+    align-content: center;
+    text-align: center;
+    font-family: 'Silkscreen', cursive;
+    margin-bottom: -50px;
+    margin-top: 10px;
+}
+
+.githubIcon {
+    height: 30px;
+    width: 30px;
+}
+
+.bodyContainer {
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    position: relative;
+}
+
+.inactive div {
+    color: rgba(0, 0, 0, .2);
+    border-color: rgba(0, 0, 0, .2);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    color: black;
+    text-align: center;
+    height: 30px;
+    padding: 20px;
+}
