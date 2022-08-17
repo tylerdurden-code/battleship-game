@@ -1,5 +1,5 @@
 import './style.css';
-// import tylerDurdenPic from './assets/tylerdurden.jpg';
+import tylerDurdenPic from './assets/tylerdurden.jpg';
 
 // const tylerDurdenPic = require('file-loader!./assets/tyler durden.jpg');
 const createGameboard = require('./gameboard');
@@ -27,20 +27,19 @@ const submarineShip2 = createShip(3, 'submarine');
 shipsP1.push(destroyerShip1, carrierShip1, battleShip1, cruiserShip1, submarineShip1);
 shipsP2.push(destroyerShip2, carrierShip2, battleShip2, cruiserShip2, submarineShip2);
 
-let playerList;
-runStartingPage(playerList);
+runStartingPage();
 
-positionShips(shipsP1, gameboardPlayer1);
+// positionShips(shipsP1, gameboardPlayer1);
 
-positionShips(shipsP2, gameboardPlayer2);
-console.log('player one ships position');
-// console.log(gameboardPlayer1);
-gameboardPlayer1.forEach((box) => {
-  console.log(box);
-});
-console.log('player two ships position');
-gameboardPlayer2.forEach((box) => {
-  console.log(box);
-});
+// positionShips(shipsP2, gameboardPlayer2);
+// console.log('player one ships position');
+// // console.log(gameboardPlayer1);
+// gameboardPlayer1.forEach((box) => {
+//   console.log(box);
+// });
+// console.log('player two ships position');
+// gameboardPlayer2.forEach((box) => {
+//   console.log(box);
+// });
 
-rounds(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1, shipsP2);
+// rounds(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1, shipsP2);

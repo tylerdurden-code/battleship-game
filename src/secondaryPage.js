@@ -1,11 +1,14 @@
 const createPlayers = require('./createPlayers');
+const runThirdPage = require('./thirdPage');
 
-function secondaryPageEventListeners(playerList) {
+function secondaryPageEventListeners() {
   const nameInput = document.querySelector('#inputAName');
+  let playerList;
   nameInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-      nameInput.value = '';
       playerList = createPlayers(nameInput.value);
+      nameInput.value = '';
+      runThirdPage(playerList);
     }
   });
 }
@@ -16,7 +19,7 @@ function secondaryPageGetImg() {
   tylerImg.src = './imgs/tylerdurden.jpg';
 }
 
-function runSecondaryPage(playerList) {
+function runSecondaryPage() {
   const body = document.querySelector('body');
 
   body.innerHTML = `
@@ -31,7 +34,7 @@ function runSecondaryPage(playerList) {
     </div>
   `;
   secondaryPageGetImg();
-  secondaryPageEventListeners(playerList);
+  secondaryPageEventListeners();
 }
 
 module.exports = { runSecondaryPage, secondaryPageGetImg };
