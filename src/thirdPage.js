@@ -19,6 +19,20 @@ const gameboardPlayer2 = createGameboard();
 shipsP1.push(destroyerShip1, carrierShip1, battleShip1, cruiserShip1, submarineShip1);
 shipsP2.push(destroyerShip2, carrierShip2, battleShip2, cruiserShip2, submarineShip2);
 
+function letsPositionTheShips() {
+  const boardHero = document.querySelector('.heroBoard');
+  const boardHeroArr = [...boardHero.childNodes];
+  console.log(boardHeroArr);
+  boardHeroArr.forEach((row) => {
+    const rowArr = [...row.childNodes];
+    rowArr.forEach((box) => {
+      box.addEventListener('click', () => {
+        console.log(box.classList);
+      });
+    });
+  });
+}
+
 function runThirdPage(playerList) {
   const thePlayerList = playerList;
 
@@ -42,6 +56,7 @@ function runThirdPage(playerList) {
   container.classList = 'container';
   const div = document.createElement('div');
   div.classList = 'heroBoard active';
+  div.dataset.positionMode = 'on';
   gameboardPlayer1.forEach((row) => {
     let col = 0;
     const secDiv = document.createElement('div');
@@ -101,6 +116,8 @@ function runThirdPage(playerList) {
   bodyContainer.appendChild(footer);
 
   body.appendChild(bodyContainer);
+
+  letsPositionTheShips();
 }
 
 module.exports = runThirdPage;
