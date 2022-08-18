@@ -154,3 +154,11 @@
     height: 30px;
     padding: 20px;
 }
+
+.heroBoard[data-position-mode='on'] .row .box {
+    background-color: red;
+}
+
+.inactive .row .box:hover {
+    background-color: white;
+}

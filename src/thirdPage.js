@@ -16,10 +16,11 @@ const submarineShip2 = createShip(3, 'submarine');
 const gameboardPlayer1 = createGameboard();
 const gameboardPlayer2 = createGameboard();
 
-shipsP1.push(destroyerShip1, carrierShip1, battleShip1, cruiserShip1, submarineShip1);
-shipsP2.push(destroyerShip2, carrierShip2, battleShip2, cruiserShip2, submarineShip2);
+shipsP1.push(destroyerShip1, cruiserShip1, submarineShip1, battleShip1, carrierShip1);
+shipsP2.push(destroyerShip2, cruiserShip2, submarineShip2, battleShip2, carrierShip2);
 
 function letsPositionTheShips() {
+  let bryce = 0;
   const boardHero = document.querySelector('.heroBoard');
   const boardHeroArr = [...boardHero.childNodes];
   console.log(boardHeroArr);
@@ -27,7 +28,11 @@ function letsPositionTheShips() {
     const rowArr = [...row.childNodes];
     rowArr.forEach((box) => {
       box.addEventListener('click', () => {
-        console.log(box.classList);
+        if (bryce > 4) {
+          return;
+        }
+        console.log(shipsP1[bryce]);
+        bryce += 1;
       });
     });
   });

@@ -4,13 +4,16 @@ const runThirdPage = require('./thirdPage');
 function secondaryPageEventListeners() {
   const nameInput = document.querySelector('#inputAName');
   let playerList;
-  nameInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      playerList = createPlayers(nameInput.value);
-      nameInput.value = '';
-      runThirdPage(playerList);
-    }
-  });
+  // nameInput.addEventListener('keypress', (e) => {
+  //   if (e.key === 'Enter') {
+  //     playerList = createPlayers(nameInput.value);
+  //     nameInput.value = '';
+  //     runThirdPage(playerList);
+  //   }
+  // });
+  playerList = createPlayers('Tyler Durden');
+  nameInput.value = '';
+  runThirdPage(playerList); // auto name for debugging perposes
 }
 
 function secondaryPageGetImg() {
