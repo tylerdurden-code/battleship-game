@@ -207,3 +207,47 @@
 [data-color='red']:hover+div+div {
     background-color: red;
 }
+
+[data-color='pink']:hover {
+    background-color: pink;
+}
+
+[data-color='pink']:hover+div {
+    background-color: pink;
+}
+
+[data-color='pink']:hover+div+div {
+    background-color: pink;
+}
+
+[data-color='pink']:hover+div+div {
+    background-color: pink;
+}
+
+[data-color='pink']:hover+div+div+div {
+    background-color: pink;
+}
+
+[data-color='blue']:hover {
+    background-color: blue;
+}
+
+[data-color='blue']:hover+div {
+    background-color: blue;
+}
+
+[data-color='blue']:hover+div+div {
+    background-color: blue;
+}
+
+[data-color='blue']:hover+div+div {
+    background-color: blue;
+}
+
+[data-color='blue']:hover+div+div+div {
+    background-color: blue;
+}
+
+[data-color='blue']:hover+div+div+div+div {
+    background-color: blue;
+}

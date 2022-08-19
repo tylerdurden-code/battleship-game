@@ -58,6 +58,22 @@ function letsPositionTheShips() {
             }
           });
         }
+        if (bryce === 3) {
+          boardHeroArr.forEach((rowa) => {
+            const rowArra = [...rowa.childNodes];
+            for (let i = 0; i < rowArr.length; i += 1) {
+              rowArra[i].dataset.color = 'pink';
+            }
+          });
+        }
+        if (bryce === 4) {
+          boardHeroArr.forEach((rowa) => {
+            const rowArra = [...rowa.childNodes];
+            for (let i = 0; i < rowArr.length; i += 1) {
+              rowArra[i].dataset.color = 'blue';
+            }
+          });
+        }
       });
     });
   });
