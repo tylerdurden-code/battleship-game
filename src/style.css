@@ -155,10 +155,55 @@
     padding: 20px;
 }
 
-.heroBoard[data-position-mode='on'] .row .box {
+/* .heroBoard[data-position-mode='on'] .row .box {
     background-color: red;
-}
+} */
 
 .inactive .row .box:hover {
     background-color: white;
+}
+
+/* .heroBoard[data-ship-currently-placing='destroyer'].heroBoard[data-ship-rotation='right'] .row .box:hover {
+    background-color: purple;
+
+} */
+
+.heroBoard[data-ship-hover='destroyerHover'] {
+    background-color: purple;
+}
+
+[data-color='purple']:hover {
+    background-color: purple;
+}
+
+[data-color='purple']:hover+div {
+    background-color: purple;
+}
+
+[data-color='green']:hover {
+    background-color: greenyellow;
+}
+
+[data-color='green']:hover+div {
+    background-color: greenyellow;
+}
+
+[data-color='green']:hover+div+div {
+    background-color: greenyellow;
+}
+
+[data-color='red']:hover {
+    background-color: red;
+}
+
+[data-color='red']:hover+div {
+    background-color: red;
+}
+
+[data-color='red']:hover+div+div {
+    background-color: red;
+}
+
+[data-color='red']:hover+div+div {
+    background-color: red;
 }

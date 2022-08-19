@@ -15,6 +15,7 @@ const cruiserShip2 = createShip(3, 'cruiser');
 const submarineShip2 = createShip(3, 'submarine');
 const gameboardPlayer1 = createGameboard();
 const gameboardPlayer2 = createGameboard();
+const changeElementBackgroundColorHover = require('./changeElementBackgroundColorHover');
 
 shipsP1.push(destroyerShip1, cruiserShip1, submarineShip1, battleShip1, carrierShip1);
 shipsP2.push(destroyerShip2, cruiserShip2, submarineShip2, battleShip2, carrierShip2);
@@ -23,16 +24,40 @@ function letsPositionTheShips() {
   let bryce = 0;
   const boardHero = document.querySelector('.heroBoard');
   const boardHeroArr = [...boardHero.childNodes];
-  console.log(boardHeroArr);
+  if ((boardHero.dataset.shipCurrentlyPlacing === 'destroyer') && (boardHero.dataset.shipRotation === 'right')) {
+    boardHeroArr.forEach((row) => {
+      const rowArr = [...row.childNodes];
+      for (let i = 0; i < rowArr.length; i += 1) {
+        rowArr[i].dataset.color = 'purple';
+      }
+    });
+  }
+
   boardHeroArr.forEach((row) => {
     const rowArr = [...row.childNodes];
     rowArr.forEach((box) => {
       box.addEventListener('click', () => {
-        if (bryce > 4) {
+        if (bryce > 5) {
           return;
         }
-        console.log(shipsP1[bryce]);
+        console.log(shipsP1[bryce].name);
         bryce += 1;
+        if (bryce === 1) {
+          boardHeroArr.forEach((rowa) => {
+            const rowArra = [...rowa.childNodes];
+            for (let i = 0; i < rowArr.length; i += 1) {
+              rowArra[i].dataset.color = 'green';
+            }
+          });
+        }
+        if (bryce === 2) {
+          boardHeroArr.forEach((rowa) => {
+            const rowArra = [...rowa.childNodes];
+            for (let i = 0; i < rowArr.length; i += 1) {
+              rowArra[i].dataset.color = 'red';
+            }
+          });
+        }
       });
     });
   });
@@ -62,6 +87,8 @@ function runThirdPage(playerList) {
   const div = document.createElement('div');
   div.classList = 'heroBoard active';
   div.dataset.positionMode = 'on';
+  div.dataset.shipCurrentlyPlacing = 'destroyer';
+  div.dataset.shipRotation = 'right';
   gameboardPlayer1.forEach((row) => {
     let col = 0;
     const secDiv = document.createElement('div');
