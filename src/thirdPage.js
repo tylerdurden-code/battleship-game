@@ -21,7 +21,8 @@ shipsP1.push(destroyerShip1, cruiserShip1, submarineShip1, battleShip1, carrierS
 shipsP2.push(destroyerShip2, cruiserShip2, submarineShip2, battleShip2, carrierShip2);
 
 function letsPositionTheShips() {
-  let bryce = 0;
+  const currentShipDiv = document.querySelector('.currentShipDiv ');
+  let bryce = 1;
   const boardHero = document.querySelector('.heroBoard');
   const boardHeroArr = [...boardHero.childNodes];
   if ((boardHero.dataset.shipCurrentlyPlacing === 'destroyer') && (boardHero.dataset.shipRotation === 'right')) {
@@ -37,11 +38,18 @@ function letsPositionTheShips() {
     const rowArr = [...row.childNodes];
     rowArr.forEach((box) => {
       box.addEventListener('click', () => {
-        if (bryce > 5) {
+        if (bryce > 4) {
+          console.log(shipsP1[bryce - 1].name);
+          console.log('stage 5');
+
           return;
         }
-        console.log(shipsP1[bryce].name);
-        bryce += 1;
+        console.log(shipsP1[bryce - 1].name);
+        if (boardHero.dataset.positionMode === 'on') {
+          console.log(`col num ${box.dataset.colNum} row num ${box.dataset.rowNum}`);
+        }
+
+        currentShipDiv.textContent = `place your ${shipsP1[bryce].name}`;
         if (bryce === 1) {
           boardHeroArr.forEach((rowa) => {
             const rowArra = [...rowa.childNodes];
@@ -74,6 +82,7 @@ function letsPositionTheShips() {
             }
           });
         }
+        bryce += 1;
       });
     });
   });
@@ -121,7 +130,30 @@ function runThirdPage(playerList) {
     div.appendChild(secDiv);
     rowa += 1;
   });
+  let scrollCheck = true;
+  div.addEventListener('wheel', () => {
+    const secSecDiv = document.querySelectorAll('.heroBoard > .row');
 
+    if (scrollCheck === true) {
+      div.style.flexDirection = 'row';
+      secSecDiv.forEach((littleDiv) => {
+        littleDiv.style.flexDirection = 'column';
+      });
+      div.dataset.shipRotation = 'down';
+      console.log(div.dataset.shipRotation);
+      scrollCheck = false;
+      return;
+    }
+    if (scrollCheck === false) {
+      div.style.flexDirection = 'column';
+      secSecDiv.forEach((littleDiv) => {
+        littleDiv.style.flexDirection = 'row';
+      });
+      div.dataset.shipRotation = 'right';
+      console.log(div.dataset.shipRotation);
+      scrollCheck = true;
+    }
+  });
   container.appendChild(div);
 
   rowa = 0;
@@ -161,6 +193,16 @@ function runThirdPage(playerList) {
   footer.appendChild(imgEle);
   footer.appendChild(h3);
 
+  const currentShipDiv = document.createElement('div');
+  currentShipDiv.classList.add('currentShipDiv');
+  currentShipDiv.textContent = 'Place you destroyer';
+
+  const rotationTip = document.createElement('div');
+  rotationTip.classList.add('rotationTip');
+  rotationTip.textContent = 'scroll to rotate the ships !';
+
+  bodyContainer.appendChild(currentShipDiv);
+  bodyContainer.appendChild(rotationTip);
   bodyContainer.appendChild(footer);
 
   body.appendChild(bodyContainer);
