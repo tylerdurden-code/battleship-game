@@ -21,71 +21,196 @@ shipsP1.push(destroyerShip1, cruiserShip1, submarineShip1, battleShip1, carrierS
 shipsP2.push(destroyerShip2, cruiserShip2, submarineShip2, battleShip2, carrierShip2);
 
 function letsPositionTheShips() {
-  const currentShipDiv = document.querySelector('.currentShipDiv ');
-  let bryce = 1;
-  const boardHero = document.querySelector('.heroBoard');
-  const boardHeroArr = [...boardHero.childNodes];
-  if ((boardHero.dataset.shipCurrentlyPlacing === 'destroyer') && (boardHero.dataset.shipRotation === 'right')) {
-    boardHeroArr.forEach((row) => {
-      const rowArr = [...row.childNodes];
-      for (let i = 0; i < rowArr.length; i += 1) {
-        rowArr[i].dataset.color = 'purple';
-      }
-    });
+  // const theColorDiv = document.createElement('div');
+  // theColorDiv.dataset.colorDiv = 'purple';
+  // const currentShipDiv = document.querySelector('.currentShipDiv ');
+  // let bryce = 1;
+  // const boardHero = document.querySelector('.heroBoard');
+  // const boardHeroArr = [...boardHero.childNodes];
+  // if ((boardHero.dataset.shipCurrentlyPlacing === 'destroyer') && (boardHero.dataset.shipRotation === 'right')) {
+  //   boardHeroArr.forEach((row) => {
+  //     const rowArr = [...row.childNodes];
+  //     for (let i = 0; i < rowArr.length; i += 1) {
+  //       rowArr[i].dataset.color = 'purple';
+  //     }
+  //   });
+  // }
+
+  // boardHeroArr.forEach((row) => {
+  //   const rowArr = [...row.childNodes];
+  //   rowArr.forEach((box) => {
+  //     box.addEventListener('wheel', () => {
+  //       if (bryce === 1) {
+  //         if (boardHero.dataset.shipRotation === 'down') {
+  //           const rowNum = parseInt(box.dataset.rowNum) + 1;
+  //           const colNum = parseInt(box.dataset.colNum);
+
+  //           const nextBox = document.querySelector(`[data-row-num = ${rowNum}][data-col-num = ${colNum}][data-color = purple]`);
+
+  //           console.log(nextBox);
+  //           box.dataset.color = 'purple';
+  //           nextBox.dataset.color = 'purple';
+  //         }
+  //         if (boardHero.dataset.shipRotation === 'right') {
+  //           console.log('purple');
+  //         }
+  //       }
+  //     });
+  //     box.addEventListener('click', () => {
+  //       if (bryce > 4) {
+  //         console.log(shipsP1[bryce - 1].name);
+  //         if (boardHero.dataset.positionMode === 'on') {
+  //           console.log(`col num ${box.dataset.colNum} row num ${box.dataset.rowNum}`);
+  //         }
+  //         console.log('stage 5');
+
+  //         return;
+  //       }
+  //       console.log(shipsP1[bryce - 1].name);
+  //       box.appendChild(theColorDiv);
+
+  //       if (boardHero.dataset.positionMode === 'on') {
+  //         console.log(`col num ${box.dataset.colNum} row num ${box.dataset.rowNum}`);
+  //       }
+
+  //       currentShipDiv.textContent = `place your ${shipsP1[bryce].name}`;
+  //       if (bryce === 1) {
+  //         boardHeroArr.forEach((rowa) => {
+  //           const rowArra = [...rowa.childNodes];
+  //           for (let i = 0; i < rowArr.length; i += 1) {
+  //             rowArra[i].dataset.color = 'green';
+  //           }
+  //         });
+  //       }
+  //       if (bryce === 2) {
+  //         boardHeroArr.forEach((rowa) => {
+  //           const rowArra = [...rowa.childNodes];
+  //           for (let i = 0; i < rowArr.length; i += 1) {
+  //             rowArra[i].dataset.color = 'red';
+  //           }
+  //         });
+  //       }
+  //       if (bryce === 3) {
+  //         boardHeroArr.forEach((rowa) => {
+  //           const rowArra = [...rowa.childNodes];
+  //           for (let i = 0; i < rowArr.length; i += 1) {
+  //             rowArra[i].dataset.color = 'pink';
+  //           }
+  //         });
+  //       }
+  //       if (bryce === 4) {
+  //         boardHeroArr.forEach((rowa) => {
+  //           const rowArra = [...rowa.childNodes];
+  //           for (let i = 0; i < rowArr.length; i += 1) {
+  //             rowArra[i].dataset.color = 'blue';
+  //           }
+  //         });
+  //       }
+  //       bryce += 1;
+  //     });
+  //   });
+  // });
+
+}
+
+function makeShipsDraggable() {
+  const dragShips = document.querySelectorAll('[data-drag-ship]');
+  const boxes = document.querySelectorAll('.box');
+  let dragItem = null;
+
+  function dragStart() {
+    console.log('drag started');
+    dragItem = this;
   }
+  function dragEnd() {
+    console.log('drag ended');
+    console.log(dragItem.draggable);
 
-  boardHeroArr.forEach((row) => {
-    const rowArr = [...row.childNodes];
-    rowArr.forEach((box) => {
-      box.addEventListener('click', () => {
-        if (bryce > 4) {
-          console.log(shipsP1[bryce - 1].name);
-          console.log('stage 5');
+    dragItem = null;
+  }
+  function dragOver(e) {
+    e.preventDefault();
+    console.log('drag over');
+  }
+  function dragEnter() {
+    console.log('drag entered');
+  }
+  function dragLeave() {
+    console.log('drag left');
+  }
+  function dragDrop() {
+    console.log('drag dropped');
 
-          return;
-        }
-        console.log(shipsP1[bryce - 1].name);
-        if (boardHero.dataset.positionMode === 'on') {
-          console.log(`col num ${box.dataset.colNum} row num ${box.dataset.rowNum}`);
-        }
-
-        currentShipDiv.textContent = `place your ${shipsP1[bryce].name}`;
-        if (bryce === 1) {
-          boardHeroArr.forEach((rowa) => {
-            const rowArra = [...rowa.childNodes];
-            for (let i = 0; i < rowArr.length; i += 1) {
-              rowArra[i].dataset.color = 'green';
-            }
-          });
-        }
-        if (bryce === 2) {
-          boardHeroArr.forEach((rowa) => {
-            const rowArra = [...rowa.childNodes];
-            for (let i = 0; i < rowArr.length; i += 1) {
-              rowArra[i].dataset.color = 'red';
-            }
-          });
-        }
-        if (bryce === 3) {
-          boardHeroArr.forEach((rowa) => {
-            const rowArra = [...rowa.childNodes];
-            for (let i = 0; i < rowArr.length; i += 1) {
-              rowArra[i].dataset.color = 'pink';
-            }
-          });
-        }
-        if (bryce === 4) {
-          boardHeroArr.forEach((rowa) => {
-            const rowArra = [...rowa.childNodes];
-            for (let i = 0; i < rowArr.length; i += 1) {
-              rowArra[i].dataset.color = 'blue';
-            }
-          });
-        }
-        bryce += 1;
-      });
-    });
+    this.append(dragItem);
+    dragItem.draggable = false;
+    dragItem.dataset.rotatable = 'false';
+  }
+  boxes.forEach((box) => {
+    box.addEventListener('dragover', dragOver);
+    box.addEventListener('dragenter', dragEnter);
+    box.addEventListener('dragleave', dragLeave);
+    box.addEventListener('drop', dragDrop);
   });
+
+  dragShips.forEach((ship) => {
+    ship.addEventListener('dragstart', dragStart);
+    ship.addEventListener('dragend', dragEnd);
+  });
+}
+
+function letsPositionTheShipsTwo() {
+  const shipContainer = document.querySelector('.shipContainer');
+
+  const destroyerTheShip = document.createElement('div');
+  destroyerTheShip.classList.add('destroyerShip');
+  destroyerTheShip.dataset.dragShip = '';
+  destroyerTheShip.draggable = 'true';
+  destroyerTheShip.dataset.rotatable = 'true';
+  let destroyerChecker = true;
+  destroyerTheShip.addEventListener('click', () => {
+    if (destroyerTheShip.dataset.rotatable === 'false') {
+      return;
+    }
+    if (destroyerChecker) {
+      destroyerTheShip.style.width = '40px';
+      destroyerTheShip.style.height = '80px';
+      destroyerChecker = false;
+      return;
+    }
+    if (!destroyerChecker) {
+      destroyerTheShip.style.width = '80px';
+      destroyerTheShip.style.height = '40px';
+      destroyerChecker = true;
+    }
+  });
+
+  const cruiserTheShip = document.createElement('div');
+  cruiserTheShip.classList.add('cruiserShip');
+  cruiserTheShip.dataset.dragShip = '';
+  cruiserTheShip.draggable = 'true';
+
+  const submarineTheShip = document.createElement('div');
+  submarineTheShip.classList.add('submarineShip');
+  submarineTheShip.dataset.dragShip = '';
+  submarineTheShip.draggable = 'true';
+
+  const battleshipTheShip = document.createElement('div');
+  battleshipTheShip.classList.add('battleshipShip');
+  battleshipTheShip.dataset.dragShip = '';
+  battleshipTheShip.draggable = 'true';
+
+  const carrierTheShip = document.createElement('div');
+  carrierTheShip.classList.add('carrierShip');
+  carrierTheShip.dataset.dragShip = '';
+  carrierTheShip.draggable = 'true';
+
+  shipContainer.appendChild(destroyerTheShip);
+  shipContainer.appendChild(cruiserTheShip);
+  shipContainer.appendChild(submarineTheShip);
+  shipContainer.appendChild(battleshipTheShip);
+  shipContainer.appendChild(carrierTheShip);
+
+  makeShipsDraggable();
 }
 
 function runThirdPage(playerList) {
@@ -130,31 +255,41 @@ function runThirdPage(playerList) {
     div.appendChild(secDiv);
     rowa += 1;
   });
-  let scrollCheck = true;
-  div.addEventListener('wheel', () => {
-    const secSecDiv = document.querySelectorAll('.heroBoard > .row');
+  const scrollCheck = true;
 
-    if (scrollCheck === true) {
-      div.style.flexDirection = 'row';
-      secSecDiv.forEach((littleDiv) => {
-        littleDiv.style.flexDirection = 'column';
-      });
-      div.dataset.shipRotation = 'down';
-      console.log(div.dataset.shipRotation);
-      scrollCheck = false;
-      return;
-    }
-    if (scrollCheck === false) {
-      div.style.flexDirection = 'column';
-      secSecDiv.forEach((littleDiv) => {
-        littleDiv.style.flexDirection = 'row';
-      });
-      div.dataset.shipRotation = 'right';
-      console.log(div.dataset.shipRotation);
-      scrollCheck = true;
-    }
+  // rotating ship event listener
+
+  div.addEventListener('wheel', () => {
+    // const secSecDiv = document.querySelectorAll('.heroBoard > .row');
+
+    // if (scrollCheck === true) {
+    //   // div.style.flexDirection = 'row';
+    //   // secSecDiv.forEach((littleDiv) => {
+    //   //   littleDiv.style.flexDirection = 'box';
+    //   // });
+    //   div.dataset.shipRotation = 'down';
+    //   // console.log(div.dataset.shipRotation);
+    //   scrollCheck = false;
+    //   return;
+    // }
+    // if (scrollCheck === false) {
+    //   // div.style.flexDirection = 'box';
+    //   // secSecDiv.forEach((littleDiv) => {
+    //   //   littleDiv.style.flexDirection = 'row';
+    //   // });
+    //   div.dataset.shipRotation = 'right';
+    //   // console.log(div.dataset.shipRotation);
+    //   scrollCheck = true;
+    // }
   });
+
+  // ------
   container.appendChild(div);
+
+  const shipContainer = document.createElement('div');
+  shipContainer.classList.add('shipContainer');
+
+  container.appendChild(shipContainer);
 
   rowa = 0;
   bodyContainer.appendChild(container);
@@ -207,7 +342,7 @@ function runThirdPage(playerList) {
 
   body.appendChild(bodyContainer);
 
-  letsPositionTheShips();
+  letsPositionTheShipsTwo();
 }
 
 module.exports = runThirdPage;
