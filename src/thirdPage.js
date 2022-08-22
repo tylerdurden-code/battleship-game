@@ -124,7 +124,6 @@ function makeShipsDraggable() {
   }
   function dragEnd() {
     console.log('drag ended');
-    console.log(dragItem.draggable);
 
     dragItem = null;
   }
@@ -141,9 +140,13 @@ function makeShipsDraggable() {
   function dragDrop() {
     console.log('drag dropped');
 
-    this.append(dragItem);
-    dragItem.draggable = false;
-    dragItem.dataset.rotatable = 'false';
+    if (this.parentNode.parentNode.dataset.positionMode === 'on') { // just for one board only
+      this.append(dragItem);
+      console.log(this.dataset.colNum, this.dataset.rowNum);
+
+      dragItem.draggable = false;
+      dragItem.dataset.rotatable = 'false';
+    }
   }
   boxes.forEach((box) => {
     box.addEventListener('dragover', dragOver);
@@ -165,7 +168,9 @@ function letsPositionTheShipsTwo() {
   destroyerTheShip.classList.add('destroyerShip');
   destroyerTheShip.dataset.dragShip = '';
   destroyerTheShip.draggable = 'true';
+  destroyerTheShip.dataset.length = '2';
   destroyerTheShip.dataset.rotatable = 'true';
+  destroyerTheShip.dataset.currentRotation = 'right';
   let destroyerChecker = true;
   destroyerTheShip.addEventListener('click', () => {
     if (destroyerTheShip.dataset.rotatable === 'false') {
@@ -174,12 +179,14 @@ function letsPositionTheShipsTwo() {
     if (destroyerChecker) {
       destroyerTheShip.style.width = '40px';
       destroyerTheShip.style.height = '80px';
+      destroyerTheShip.dataset.currentRotation = 'down';
       destroyerChecker = false;
       return;
     }
     if (!destroyerChecker) {
       destroyerTheShip.style.width = '80px';
       destroyerTheShip.style.height = '40px';
+      destroyerTheShip.dataset.currentRotation = 'right';
       destroyerChecker = true;
     }
   });
@@ -188,21 +195,105 @@ function letsPositionTheShipsTwo() {
   cruiserTheShip.classList.add('cruiserShip');
   cruiserTheShip.dataset.dragShip = '';
   cruiserTheShip.draggable = 'true';
+  cruiserTheShip.dataset.length = '3';
+  cruiserTheShip.dataset.currentRotation = 'right';
+  let cruiserChecker = true;
+  cruiserTheShip.addEventListener('click', () => {
+    if (cruiserTheShip.dataset.rotatable === 'false') {
+      return;
+    }
+    if (cruiserChecker) {
+      cruiserTheShip.style.width = '40px';
+      cruiserTheShip.style.height = '120px';
+      cruiserTheShip.dataset.currentRotation = 'down';
+      cruiserChecker = false;
+      return;
+    }
+    if (!cruiserChecker) {
+      cruiserTheShip.style.width = '120px';
+      cruiserTheShip.style.height = '40px';
+      cruiserTheShip.dataset.currentRotation = 'right';
+      cruiserChecker = true;
+    }
+  });
 
   const submarineTheShip = document.createElement('div');
   submarineTheShip.classList.add('submarineShip');
   submarineTheShip.dataset.dragShip = '';
   submarineTheShip.draggable = 'true';
+  submarineTheShip.dataset.length = '3';
+  submarineTheShip.dataset.currentRotation = 'right';
+  let submarineChecker = true;
+  submarineTheShip.addEventListener('click', () => {
+    if (submarineTheShip.dataset.rotatable === 'false') {
+      return;
+    }
+    if (submarineChecker) {
+      submarineTheShip.style.width = '40px';
+      submarineTheShip.style.height = '120px';
+      submarineTheShip.dataset.currentRotation = 'down';
+      submarineChecker = false;
+      return;
+    }
+    if (!submarineChecker) {
+      submarineTheShip.style.width = '120px';
+      submarineTheShip.style.height = '40px';
+      submarineTheShip.dataset.currentRotation = 'right';
+      submarineChecker = true;
+    }
+  });
 
   const battleshipTheShip = document.createElement('div');
   battleshipTheShip.classList.add('battleshipShip');
   battleshipTheShip.dataset.dragShip = '';
   battleshipTheShip.draggable = 'true';
+  battleshipTheShip.dataset.length = '4';
+  battleshipTheShip.dataset.currentRotation = 'right';
+  let battleshipChecker = true;
+  battleshipTheShip.addEventListener('click', () => {
+    if (battleshipTheShip.dataset.rotatable === 'false') {
+      return;
+    }
+    if (battleshipChecker) {
+      battleshipTheShip.style.width = '40px';
+      battleshipTheShip.style.height = '160px';
+      battleshipTheShip.dataset.currentRotation = 'down';
+      battleshipChecker = false;
+      return;
+    }
+    if (!battleshipChecker) {
+      battleshipTheShip.style.width = '160px';
+      battleshipTheShip.style.height = '40px';
+      battleshipTheShip.dataset.currentRotation = 'right';
+      battleshipChecker = true;
+    }
+  });
 
   const carrierTheShip = document.createElement('div');
   carrierTheShip.classList.add('carrierShip');
   carrierTheShip.dataset.dragShip = '';
   carrierTheShip.draggable = 'true';
+  carrierTheShip.dataset.length = '5';
+  carrierTheShip.dataset.currentRotation = 'right';
+  let carrierChecker = true;
+  carrierTheShip.addEventListener('click', () => {
+    if (carrierTheShip.dataset.rotatable === 'false') {
+      return;
+    }
+    if (carrierChecker) {
+      carrierTheShip.style.width = '40px';
+      carrierTheShip.style.height = '200px';
+      carrierTheShip.dataset.currentRotation = 'down';
+      carrierChecker = false;
+      return;
+    }
+    if (!carrierChecker) {
+      carrierTheShip.style.width = '200px';
+      carrierTheShip.style.height = '40px';
+      carrierTheShip.dataset.currentRotation = 'right';
+      carrierChecker = true;
+    }
+  });
 
   shipContainer.appendChild(destroyerTheShip);
   shipContainer.appendChild(cruiserTheShip);
