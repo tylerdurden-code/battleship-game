@@ -235,4 +235,4 @@ function positionShips(shipsArray, gameboard) {
   });
 }
 
-module.exports = positionShips;
+module.exports = { positionShips, gameboardPosition, isPositionOccupied };

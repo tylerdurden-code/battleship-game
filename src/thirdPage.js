@@ -1,5 +1,6 @@
 const createShip = require('./ships');
 const createGameboard = require('./gameboard');
+const positionShipUpgraded = require('./positionShipsUpgraded');
 
 const shipsP1 = [];
 const shipsP2 = [];
@@ -119,30 +120,39 @@ function makeShipsDraggable() {
   let dragItem = null;
 
   function dragStart() {
-    console.log('drag started');
+    // console.log('drag started');
     dragItem = this;
   }
   function dragEnd() {
-    console.log('drag ended');
+    // console.log('drag ended');
 
     dragItem = null;
   }
   function dragOver(e) {
     e.preventDefault();
-    console.log('drag over');
+    // console.log('drag over');
   }
   function dragEnter() {
-    console.log('drag entered');
+    // console.log('drag entered');
   }
   function dragLeave() {
-    console.log('drag left');
+    // console.log('drag left');
   }
   function dragDrop() {
-    console.log('drag dropped');
+    // console.log('drag dropped');
 
     if (this.parentNode.parentNode.dataset.positionMode === 'on') { // just for one board only
+      if (positionShipUpgraded(
+        this.dataset.rowNum,
+        this.dataset.colNum,
+        dragItem.dataset.length,
+        gameboardPlayer1,
+        dragItem.dataset.currentRotation,
+        dragItem.classList[0],
+      )) {
+        return;
+      }
       this.append(dragItem);
-      console.log(this.dataset.colNum, this.dataset.rowNum);
 
       dragItem.draggable = false;
       dragItem.dataset.rotatable = 'false';

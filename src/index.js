@@ -5,7 +5,7 @@ import githubIcon from './assets/githubIcon.png';
 // const tylerDurdenPic = require('file-loader!./assets/tyler durden.jpg');
 const createGameboard = require('./gameboard');
 // const createShip = require('./ships');
-const positionShips = require('./positionShips');
+const { positionShips } = require('./positionShips');
 // const createPlayers = require('./createPlayers');
 const rounds = require('./rounds');
 const runStartingPage = require('./startingPage');
