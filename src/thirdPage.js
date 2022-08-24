@@ -118,6 +118,7 @@ function makeShipsDraggable() {
   const dragShips = document.querySelectorAll('[data-drag-ship]');
   const boxes = document.querySelectorAll('.box');
   let dragItem = null;
+  const shipContainerArray = [];
 
   function dragStart() {
     // console.log('drag started');
@@ -152,8 +153,14 @@ function makeShipsDraggable() {
       )) {
         return;
       }
-      this.append(dragItem);
 
+      this.append(dragItem);
+      const index = shipContainerArray.indexOf(dragItem);
+      shipContainerArray.splice(index, 1);
+      if (shipContainerArray.length === 0) {
+        const currentShipDiv = document.querySelector('.currentShipDiv');
+        currentShipDiv.style.display = '';
+      }
       dragItem.draggable = false;
       dragItem.dataset.rotatable = 'false';
     }
@@ -166,6 +173,7 @@ function makeShipsDraggable() {
   });
 
   dragShips.forEach((ship) => {
+    shipContainerArray.push(ship);
     ship.addEventListener('dragstart', dragStart);
     ship.addEventListener('dragend', dragEnd);
   });
@@ -431,7 +439,11 @@ function runThirdPage(playerList) {
 
   const currentShipDiv = document.createElement('div');
   currentShipDiv.classList.add('currentShipDiv');
-  currentShipDiv.textContent = 'Place you destroyer';
+  // currentShipDiv.textContent = 'Place you destroyer';
+  const startBtn = document.createElement('button');
+  startBtn.textContent = 'Press Start';
+  currentShipDiv.style.display = 'none';
+  currentShipDiv.appendChild(startBtn);
 
   const rotationTip = document.createElement('div');
   rotationTip.classList.add('rotationTip');
