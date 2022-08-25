@@ -1,6 +1,14 @@
 const generateRandomInteger = require('./randomNum');
 const checkNegativity = require('./checkIfNumIsNegative');
 
+function giveRandomDirection() {
+  const x = Math.floor(Math.random() * 2);
+  if (x === 0) {
+    return 'right';
+  }
+  return 'down';
+}
+
 function checkValidPostions(x, y, direction, length) {
   console.log(length);
   if (direction === 'right') {
@@ -230,8 +238,10 @@ function positionShips(shipsArray, gameboard) {
 //   const ship2 = shipsArray[0];
 //   gameboardPosition(ship2.length, gameboard, 'right', ship2.name);
   shipsArray.forEach((ship) => {
+    const direction = giveRandomDirection();
+
     console.log(`'you need to position ${ship.name}`);
-    gameboardPosition(ship.length, gameboard, 'right', ship.name);
+    gameboardPosition(ship.length, gameboard, direction, ship.name);
   });
 }
 

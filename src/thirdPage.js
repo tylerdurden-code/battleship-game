@@ -1,6 +1,7 @@
 const createShip = require('./ships');
 const createGameboard = require('./gameboard');
 const positionShipUpgraded = require('./positionShipsUpgraded');
+const positionShipsRandomly = require('./positionShipsRandomly');
 
 const shipsP1 = [];
 const shipsP2 = [];
@@ -122,6 +123,7 @@ function makeShipsDraggable() {
 
   function dragStart() {
     // console.log('drag started');
+
     dragItem = this;
   }
   function dragEnd() {
@@ -141,7 +143,9 @@ function makeShipsDraggable() {
   }
   function dragDrop() {
     // console.log('drag dropped');
-
+    if (dragItem.draggable === false) {
+      return;
+    }
     if (this.parentNode.parentNode.dataset.positionMode === 'on') { // just for one board only
       if (positionShipUpgraded(
         this.dataset.rowNum,
@@ -325,6 +329,8 @@ function letsPositionTheShipsTwo() {
 function runThirdPage(playerList) {
   const thePlayerList = playerList;
 
+  console.log('player list', thePlayerList);
+
   const body = document.querySelector('body');
 
   body.innerHTML = '';
@@ -441,13 +447,18 @@ function runThirdPage(playerList) {
   currentShipDiv.classList.add('currentShipDiv');
   // currentShipDiv.textContent = 'Place you destroyer';
   const startBtn = document.createElement('button');
+  startBtn.classList.add('startBtn');
   startBtn.textContent = 'Press Start';
+
+  startBtn.addEventListener('click', () => {
+    positionShipsRandomly(shipsP2, gameboardPlayer2);
+  });
   currentShipDiv.style.display = 'none';
   currentShipDiv.appendChild(startBtn);
 
   const rotationTip = document.createElement('div');
   rotationTip.classList.add('rotationTip');
-  rotationTip.textContent = 'scroll to rotate the ships !';
+  rotationTip.textContent = 'click to rotate the ships !';
 
   bodyContainer.appendChild(currentShipDiv);
   bodyContainer.appendChild(rotationTip);
