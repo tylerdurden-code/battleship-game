@@ -345,3 +345,21 @@
 [data-color='blue']:hover+div+div+div+div {
     background-color: blue;
 }
+
+.hitButMissed {
+    background-color: black;
+}
+
+.hitSuccess {
+    background-color: red;
+    text-align: center;
+
+
+}
+
+.hitSuccess::after {
+    content: "X";
+    color: black;
+    font-size: 2rem;
+
+}
