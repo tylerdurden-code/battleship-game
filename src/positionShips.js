@@ -174,7 +174,15 @@ function gameboardPosition(length, gameboard, direction, shipName) {
       } else {
         for (let i = 0; i < length; i += 1) {
           gameboard[parseInt(x)][parseInt(y) + i] = shipName;
+          gameboard[parseInt(x + 1)][parseInt(y) + i] = 'occupied';
+          gameboard[parseInt(x - 1)][parseInt(y) + i] = 'occupied';
         }
+        gameboard[parseInt(x)][parseInt(y) - 1] = 'occupied';
+        gameboard[parseInt(x)][parseInt(y) + length] = 'occupied';
+        gameboard[parseInt(x) + 1][parseInt(y) - 1] = 'occupied';
+        gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
+        gameboard[parseInt(x) + 1][parseInt(y) + length] = 'occupied';
+        gameboard[parseInt(x) - 1][parseInt(y) + length] = 'occupied';
         occupied = false;
       }
     }
@@ -225,7 +233,15 @@ function gameboardPosition(length, gameboard, direction, shipName) {
       } else {
         for (let i = 0; i < length; i += 1) {
           gameboard[parseInt(x) + i][parseInt(y)] = shipName;
+          gameboard[parseInt(x) + i][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) + i][parseInt(y) + 1] = 'occupied';
         }
+        gameboard[parseInt(x) - 1][parseInt(y)] = 'occupied';
+        gameboard[parseInt(x) + length][parseInt(y)] = 'occupied';
+        gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
+        gameboard[parseInt(x) - 1][parseInt(y) + 1] = 'occupied';
+        gameboard[parseInt(x) + length][parseInt(y) - 1] = 'occupied';
+        gameboard[parseInt(x) + length][parseInt(y) + 1] = 'occupied';
         occupied = false;
       }
     }

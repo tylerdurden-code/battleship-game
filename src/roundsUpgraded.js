@@ -11,8 +11,16 @@ function isWinner(ships) {
 }
 
 function hitUpgraded(x, y, playerObject, gameboard, ships, box = null) {
-  if (gameboard[x][y] === null) {
+  const heroBoard = document.querySelector('.heroBoard');
+  const heroboardBoxes = heroBoard.querySelectorAll('.box');
+  const heroboardBoxesArr = [...heroboardBoxes];
+  if (gameboard[x][y] === null || gameboard[x][y] === 'occupied') {
     if (box === null) {
+      heroboardBoxesArr.forEach((boxa) => {
+        if ((parseInt(boxa.dataset.rowNum) === x) && (parseInt(boxa.dataset.colNum) === y)) {
+          boxa.classList.add('hitButMissed');
+        }
+      });
       return;
     }
     box.classList.add('hitButMissed');
@@ -26,6 +34,11 @@ function hitUpgraded(x, y, playerObject, gameboard, ships, box = null) {
         console.log(ship);
       }
       if (box === null) {
+        heroboardBoxesArr.forEach((boxa) => {
+          if ((parseInt(boxa.dataset.rowNum) === x) && (parseInt(boxa.dataset.colNum) === y)) {
+            boxa.classList.add('hitSuccess');
+          }
+        });
         return;
       }
       box.classList.add('hitSuccess');
