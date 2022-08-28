@@ -26,7 +26,7 @@ function hitUpgraded(x, y, playerObject, gameboard, ships, box = null) {
     box.classList.add('hitButMissed');
     console.log('you missed');
   }
-  if (gameboard[x][y] !== null) {
+  if (gameboard[x][y] !== null && gameboard[x][y] !== 'occupied') {
     ships.forEach((ship) => {
       if (ship.name === gameboard[x][y]) {
         ship.hit();
@@ -56,6 +56,8 @@ function roundsUpgraded(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1,
   const enemyBoard = document.querySelector('.enemyBoard');
   const rotationTip = document.querySelector('.rotationTip');
   const boxes = document.querySelectorAll('.box');
+  let winningScreen = document.querySelector('.winningScreen');
+  let textInScreen = document.querySelector('.textInScreen');
 
   heroBoard.classList.remove('active');
   heroBoard.classList.add('inactive');
@@ -86,6 +88,10 @@ function roundsUpgraded(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1,
             box,
           );
           if (isWinner(shipsP2)) {
+            winningScreen = document.querySelector('.winningScreen');
+            textInScreen = document.querySelector('.textInScreen');
+            winningScreen.style.display = 'flex';
+            textInScreen.textContent = `${playerList[0].name} won`;
             console.log(`${playerList[0].name} won`);
           }
           beingHitCoordsP2.push(`x=${box.dataset.rowNum} y=${box.dataset.colNum}`);
@@ -109,7 +115,11 @@ function roundsUpgraded(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1,
               beingHitCoordsP1.push(`x=${x} y=${y}`);
               checker = true;
               if (isWinner(shipsP1)) {
-                console.log(`${playerList[0].name} won`);
+                winningScreen = document.querySelector('.winningScreen');
+                textInScreen = document.querySelector('.textInScreen');
+                winningScreen.style.display = 'flex';
+                textInScreen.textContent = `${playerList[1].name} won`;
+                console.log(`${playerList[1].name} won`);
               }
 
               console.log(beingHitCoordsP1);

@@ -29,9 +29,9 @@ const runFourthPage = require('./fourthPage');
 // shipsP1.push(destroyerShip1, carrierShip1, battleShip1, cruiserShip1, submarineShip1);
 // shipsP2.push(destroyerShip2, carrierShip2, battleShip2, cruiserShip2, submarineShip2);
 
-// runStartingPage();
+runStartingPage();
 
-runFourthPage();
+// runFourthPage();
 // positionShips(shipsP1, gameboardPlayer1);
 
 // positionShips(shipsP2, gameboardPlayer2);

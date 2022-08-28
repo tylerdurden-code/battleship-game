@@ -363,3 +363,31 @@
     font-size: 2rem;
 
 }
+
+.winningScreen {
+    background-color: rgba(0, 0, 0, .3);
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.textInScreen {
+    background-color: white;
+    height: 200px;
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'Silkscreen', cursive;
+    box-shadow: 10px 10px 20px;
+    color: greenyellow;
+
+
+}

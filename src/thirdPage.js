@@ -2,6 +2,7 @@ const createShip = require('./ships');
 const createGameboard = require('./gameboard');
 const positionShipUpgraded = require('./positionShipsUpgraded');
 const positionShipsRandomly = require('./positionShipsRandomly');
+const runFourthPage = require('./fourthPage');
 
 const shipsP1 = [];
 const shipsP2 = [];
@@ -450,9 +451,6 @@ function runThirdPage(playerList) {
   startBtn.classList.add('startBtn');
   startBtn.textContent = 'Press Start';
 
-  startBtn.addEventListener('click', () => {
-    positionShipsRandomly(shipsP2, gameboardPlayer2);
-  });
   currentShipDiv.style.display = 'none';
   currentShipDiv.appendChild(startBtn);
 
@@ -466,6 +464,10 @@ function runThirdPage(playerList) {
 
   body.appendChild(bodyContainer);
 
+  startBtn.addEventListener('click', () => {
+    positionShipsRandomly(shipsP2, gameboardPlayer2);
+    runFourthPage(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1, shipsP2, bodyContainer);
+  });
   letsPositionTheShipsTwo();
 }
 

@@ -173,16 +173,39 @@ function gameboardPosition(length, gameboard, direction, shipName) {
         }
       } else {
         for (let i = 0; i < length; i += 1) {
-          gameboard[parseInt(x)][parseInt(y) + i] = shipName;
-          gameboard[parseInt(x + 1)][parseInt(y) + i] = 'occupied';
-          gameboard[parseInt(x - 1)][parseInt(y) + i] = 'occupied';
+          if (parseInt(x) + 1 > 9) {
+            gameboard[parseInt(x)][parseInt(y) + i] = shipName;
+            gameboard[parseInt(x - 1)][parseInt(y) + i] = 'occupied';
+            return;
+          } if (parseInt(x) - 1 < 0) {
+            gameboard[parseInt(x)][parseInt(y) + i] = shipName;
+            gameboard[parseInt(x + 1)][parseInt(y) + i] = 'occupied';
+          } else {
+            gameboard[parseInt(x)][parseInt(y) + i] = shipName;
+            gameboard[parseInt(x + 1)][parseInt(y) + i] = 'occupied';
+            gameboard[parseInt(x - 1)][parseInt(y) + i] = 'occupied';
+          }
         }
-        gameboard[parseInt(x)][parseInt(y) - 1] = 'occupied';
-        gameboard[parseInt(x)][parseInt(y) + length] = 'occupied';
-        gameboard[parseInt(x) + 1][parseInt(y) - 1] = 'occupied';
-        gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
-        gameboard[parseInt(x) + 1][parseInt(y) + length] = 'occupied';
-        gameboard[parseInt(x) - 1][parseInt(y) + length] = 'occupied';
+        if (parseInt(x) + 1 > 9) {
+          gameboard[parseInt(x)][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x)][parseInt(y) + parseInt(length)] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) + parseInt(length)] = 'occupied';
+          return;
+        } if (parseInt(x) - 1 < 0) {
+          gameboard[parseInt(x)][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x)][parseInt(y) + parseInt(length)] = 'occupied';
+          gameboard[parseInt(x) + 1][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) + 1][parseInt(y) + parseInt(length)] = 'occupied';
+        } else {
+          gameboard[parseInt(x)][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x)][parseInt(y) + parseInt(length)] = 'occupied';
+          gameboard[parseInt(x) + 1][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) + 1][parseInt(y) + parseInt(length)] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) + parseInt(length)] = 'occupied';
+        }
+
         occupied = false;
       }
     }
@@ -232,16 +255,37 @@ function gameboardPosition(length, gameboard, direction, shipName) {
         }
       } else {
         for (let i = 0; i < length; i += 1) {
-          gameboard[parseInt(x) + i][parseInt(y)] = shipName;
-          gameboard[parseInt(x) + i][parseInt(y) - 1] = 'occupied';
-          gameboard[parseInt(x) + i][parseInt(y) + 1] = 'occupied';
+          if (parseInt(y) + 1 > 9) {
+            gameboard[parseInt(x) + i][parseInt(y)] = shipName;
+            gameboard[parseInt(x) + i][parseInt(y) - 1] = 'occupied';
+          } if (parseInt(y) - 1 < 0) {
+            gameboard[parseInt(x) + i][parseInt(y)] = shipName;
+            gameboard[parseInt(x) + i][parseInt(y) + 1] = 'occupied';
+          } else {
+            gameboard[parseInt(x) + i][parseInt(y)] = shipName;
+            gameboard[parseInt(x) + i][parseInt(y) - 1] = 'occupied';
+            gameboard[parseInt(x) + i][parseInt(y) + 1] = 'occupied';
+          }
         }
-        gameboard[parseInt(x) - 1][parseInt(y)] = 'occupied';
-        gameboard[parseInt(x) + length][parseInt(y)] = 'occupied';
-        gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
-        gameboard[parseInt(x) - 1][parseInt(y) + 1] = 'occupied';
-        gameboard[parseInt(x) + length][parseInt(y) - 1] = 'occupied';
-        gameboard[parseInt(x) + length][parseInt(y) + 1] = 'occupied';
+        if (parseInt(y) + 1 > 9) {
+          gameboard[parseInt(x) - 1][parseInt(y)] = 'occupied';
+          gameboard[parseInt(x) + parseInt(length)][parseInt(y)] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) + parseInt(length)][parseInt(y) - 1] = 'occupied';
+        } if (parseInt(y) - 1 < 0) {
+          gameboard[parseInt(x) - 1][parseInt(y)] = 'occupied';
+          gameboard[parseInt(x) + parseInt(length)][parseInt(y)] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) + 1] = 'occupied';
+          gameboard[parseInt(x) + parseInt(length)][parseInt(y) + 1] = 'occupied';
+        } else {
+          gameboard[parseInt(x) - 1][parseInt(y)] = 'occupied';
+          gameboard[parseInt(x) + parseInt(length)][parseInt(y)] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) - 1][parseInt(y) + 1] = 'occupied';
+          gameboard[parseInt(x) + parseInt(length)][parseInt(y) - 1] = 'occupied';
+          gameboard[parseInt(x) + parseInt(length)][parseInt(y) + 1] = 'occupied';
+        }
+
         occupied = false;
       }
     }
