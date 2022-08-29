@@ -4,6 +4,7 @@ function positionShipUpgraded(x, y, length, gameboard, direction, shipName) {
   x = parseInt(x);
   y = parseInt(y);
   length = parseInt(length);
+
   if (direction === 'right') {
     switch (length) {
       case 5:
@@ -77,29 +78,29 @@ function positionShipUpgraded(x, y, length, gameboard, direction, shipName) {
   }
   if (direction === 'right') {
     for (let i = 0; i < length; i += 1) {
-      gameboard[parseInt(x)][parseInt(y) + i] = shipName;
-      gameboard[parseInt(x + 1)][parseInt(y) + i] = 'occupied';
-      gameboard[parseInt(x - 1)][parseInt(y) + i] = 'occupied';
+      gameboard[x][y + i] = shipName;
+      gameboard[x + 1][y + i] = 'occupied';
+      gameboard[x - 1][y + i] = 'occupied';
     }
-    gameboard[parseInt(x)][parseInt(y) - 1] = 'occupied';
-    gameboard[parseInt(x)][parseInt(y) + length] = 'occupied';
-    gameboard[parseInt(x) + 1][parseInt(y) - 1] = 'occupied';
-    gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
-    gameboard[parseInt(x) + 1][parseInt(y) + length] = 'occupied';
-    gameboard[parseInt(x) - 1][parseInt(y) + length] = 'occupied';
+    gameboard[x][y - 1] = 'occupied';
+    gameboard[x][y + length] = 'occupied';
+    gameboard[x + 1][y - 1] = 'occupied';
+    gameboard[x - 1][y - 1] = 'occupied';
+    gameboard[x + 1][y + length] = 'occupied';
+    gameboard[x - 1][y + length] = 'occupied';
   }
   if (direction === 'down') {
     for (let i = 0; i < length; i += 1) {
-      gameboard[parseInt(x) + i][parseInt(y)] = shipName;
-      gameboard[parseInt(x) + i][parseInt(y) - 1] = 'occupied';
-      gameboard[parseInt(x) + i][parseInt(y) + 1] = 'occupied';
+      gameboard[x + i][y] = shipName;
+      gameboard[x + i][y - 1] = 'occupied';
+      gameboard[x + i][y + 1] = 'occupied';
     }
-    gameboard[parseInt(x) - 1][parseInt(y)] = 'occupied';
-    gameboard[parseInt(x) + length][parseInt(y)] = 'occupied';
-    gameboard[parseInt(x) - 1][parseInt(y) - 1] = 'occupied';
-    gameboard[parseInt(x) - 1][parseInt(y) + 1] = 'occupied';
-    gameboard[parseInt(x) + length][parseInt(y) - 1] = 'occupied';
-    gameboard[parseInt(x) + length][parseInt(y) + 1] = 'occupied';
+    gameboard[x - 1][y] = 'occupied';
+    gameboard[x + length][y] = 'occupied';
+    gameboard[x - 1][y - 1] = 'occupied';
+    gameboard[x - 1][y + 1] = 'occupied';
+    gameboard[x + length][y - 1] = 'occupied';
+    gameboard[x + length][y + 1] = 'occupied';
   }
   console.log(gameboard);
   return false;

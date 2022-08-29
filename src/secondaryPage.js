@@ -37,7 +37,7 @@ function runSecondaryPage() {
     </div>
   `;
   secondaryPageGetImg();
-  secondaryPageEventListeners();
+  // secondaryPageEventListeners();
 }
 
 module.exports = { runSecondaryPage, secondaryPageGetImg };

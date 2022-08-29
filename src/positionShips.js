@@ -40,7 +40,7 @@ function isPositionOccupied(x, y, length, gameboard, direction) {
   positions.forEach((position) => {
     const u = position[0];
     const o = position[1];
-    if (gameboard[u][o] != null) {
+    if (gameboard[u][o] != null && gameboard[u][o] !== 'occupied') {
       num = 1;
     }
   });

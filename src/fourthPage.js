@@ -312,13 +312,14 @@ function runFourthPage(
   //   </footer>
   // </div>`;
 
-  body.innerHTML = bodyContainer;
+  body.appendChild(bodyContainer);
 
   // boiler plate for debugging
   const rotationTip = document.querySelector('.rotationTip');
   const startBtn = document.querySelector('.startBtn');
+  const currentShipDiv = document.querySelector('.currentShipDiv');
   rotationTip.innerHTML = '';
-  startBtn.innerHTML = ' ';
+  currentShipDiv.innerHTML = '';
 
   roundsUpgraded(playerList, gameboardPlayer1, gameboardPlayer2, shipsP1, shipsP2);
 
